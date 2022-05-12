@@ -1,0 +1,9 @@
+:root {
+    --main-color: #ba0c2f;
+    --black: #2B2B2B;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
