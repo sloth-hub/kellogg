@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
         integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
@@ -52,7 +54,59 @@
         <main>
             <article id="slider">
                 <div class="inner">
-                    slider 영역
+                    <div class="swiper">
+                        <div class="swiper-wrapper">
+                            <!-- Slides -->
+                            <div class="swiper-slide">
+                                <div class="content">
+                                    <div class="text-wrap">
+                                        <h1>에너지바 K
+                                            다크초코 & 씨솔트</h1>
+                                        <h2>진한 다크초코와 씨솔트가 만난
+                                            프리미엄 에너지바</h2>
+                                        <a href="" class="more-btn">자세히 보기</a>
+                                    </div>
+                                    <div class="img-wrap">
+                                        <img src="./images/energybar.png" alt="에너지바">
+                                        <div class="img-bg"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="content">
+                                    <div class="text-wrap">
+                                        <h1>에너지바 K
+                                            다크초코 & 씨솔트</h1>
+                                        <h2>진한 다크초코와 씨솔트가 만난
+                                            프리미엄 에너지바</h2>
+                                        <a href="" class="more-btn">자세히 보기</a>
+                                    </div>
+                                    <div class="img-wrap">
+                                        <img src="./images/energybar.png" alt="에너지바">
+                                        <div class="img-bg"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="content">
+                                    <div class="text-wrap">
+                                        <h1>에너지바 K
+                                            다크초코 & 씨솔트</h1>
+                                        <h2>진한 다크초코와 씨솔트가 만난
+                                            프리미엄 에너지바</h2>
+                                        <a href="" class="more-btn">자세히 보기</a>
+                                    </div>
+                                    <div class="img-wrap">
+                                        <img src="./images/energybar.png" alt="에너지바">
+                                        <div class="img-bg"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- If we need pagination -->
+                        <div class="swiper-pagination"></div>
+                    </div>
+
                 </div>
             </article>
             <article id="cereals">
@@ -84,6 +138,7 @@
             </div>
         </footer>
     </div>
+    <script src="./js/swiper.js"></script>
 </body>
 
 </html>
