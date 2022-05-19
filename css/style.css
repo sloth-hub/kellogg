@@ -73,18 +73,21 @@ h3 {
 .container {}
 
 header {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
     height: 74px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    box-sizing: border-box;
     z-index: 2;
-    border-bottom: 1px solid var(--L-gray);
+    /* border-bottom: 1px solid var(--L-gray); */
+    display: flex;
+}
+
+.inner {
+    width: 1140px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+header .inner {
+    justify-content: space-between;
 }
 
 .main-menu {
@@ -179,20 +182,15 @@ main {
     margin: 0 auto;
 }
 
-.inner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 74px;
-}
-
 .content {
     display: flex;
     flex-direction: row;
-    justify-content: center;
     align-items: center;
     cursor: default;
+    width: 1140px;
     height: 600px;
+    margin: 0 auto;
+    justify-content: center;
 }
 
 .swiper-pagination-bullet-active {
@@ -205,35 +203,40 @@ main {
 }
 
 .text-wrap h1 {
-    font-size: 3rem;
-    line-height: 3.5rem;
+    font-size: 3.8rem;
+    line-height: 4rem;
+    letter-spacing: -0.2rem;
     white-space: pre-line;
 }
 
 .text-wrap h2 {
-    font-size: 1.3rem;
+    font-family: var(--h3);
+    font-size: 1.5rem;
     white-space: pre-line;
     padding: 25px 0 20px;
 }
 
 .more-btn {
-    width: 150px;
     text-align: center;
-    padding: 10px 0;
+    width: fit-content;
+    padding: 10px 30px;
     color: var(--white);
     background-color: var(--main-color);
+    border-radius: 8px;
 }
 
 .img-wrap {
     position: relative;
+    padding-right: 62px;
+    margin-left: 80px;
 }
 
 .img-wrap .img-bg {
     position: absolute;
-    left: 50px;
-    top: 20px;
-    width: 400px;
-    height: 400px;
+    top: -20px;
+    left: 20px;
+    width: 450px;
+    height: 450px;
     background-color: var(--main-color);
     border-radius: 50%;
     z-index: -1;
@@ -241,6 +244,7 @@ main {
 
 .img-wrap img {
     position: relative;
+    filter: drop-shadow(20px 20px 15px rgba(61, 30, 40, 0.3));
 }
 
 footer {
@@ -253,7 +257,11 @@ footer div, footer a {
 }
 
 /* 데스크탑 */
-@media screen and (max-width:1199.98px) {}
+@media screen and (max-width:1199.98px) {
+    .inner, .content {
+        width: 940px;
+    }
+}
 
 /* 타블렛 */
 @media screen and (max-width:991.98px) {}
