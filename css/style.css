@@ -187,7 +187,7 @@ main {
     margin: 0 auto;
 }
 
-.content {
+#slider .content {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -343,6 +343,31 @@ main {
     100% {
         transform: rotate(0deg);
     }
+}
+
+#cereals .inner {
+    flex-direction: column;
+}
+
+#cereals ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#cereals ul li {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+}
+
+#cereals ul li img {
+    max-width: 900px;
 }
 
 footer {
