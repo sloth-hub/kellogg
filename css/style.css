@@ -303,7 +303,7 @@ main {
 }
 
 .img-wrap img, .img-wrap .img-bg {
-    transition: width 0.3s ease,  height 0.3s ease;
+    transition: width 0.3s ease, height 0.3s ease;
 }
 
 .text-wrap h1, .text-wrap h2, .inner {
@@ -397,14 +397,17 @@ footer div, footer a {
     .inner, #slider .content {
         width: 940px;
     }
+
     .text-wrap h1 {
         font-size: 3.8rem;
     }
+
     .img-wrap img {
         max-width: 360px;
         min-height: auto;
         max-height: 430px;
     }
+
     .img-wrap .img-bg {
         width: 400px;
         height: 400px;
@@ -416,6 +419,74 @@ footer div, footer a {
     .inner, #slider .content {
         width: 720px;
     }
+
+    .main-menu {
+        display: none;
+    }
+
+    nav {
+        cursor: pointer;
+    }
+
+    .hamburger::before, .hamburger::after, .hamburger div {
+        position: relative;
+        content: "";
+        background-color: var(--black);
+        display: block;
+        width: 30px;
+        height: 3px;
+        border-radius: 3px;
+        margin: 7px 0;
+        transition: all 0.5s ease;
+        z-index: 3;
+    }
+    nav.active .hamburger {
+
+        border: 1px solid #000;
+    }
+
+    nav.active .hamburger::before {
+        transform: translateY(10px) rotate(135deg);
+        background-color: var(--white);
+    }
+
+    nav.active .hamburger::after {
+        transform: translateY(-10px) rotate(-135deg);
+        background-color: var(--white);
+    }
+
+    nav.active .hamburger div {
+        transform: scale(0);
+    }
+
+    nav.active .main-menu {
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        width: 30%;
+        height: 100%;
+        right: 0;
+        top: 0;
+        background-color: var(--main-color);
+        z-index: 2;
+        padding-left: 20px;
+    }
+
+    nav.active .main-menu .nav-item {
+        padding: 20px 0;
+    }
+
+    nav.active .main-menu .nav-item a {
+        color: var(--white);
+    }
+
+    nav.active .sub-menu {
+        position: relative;
+    }
+
+
 }
 
 /* 스마트폰 가로 */
