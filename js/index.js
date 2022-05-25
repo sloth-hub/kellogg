@@ -1,3 +1,4 @@
-$("nav").on("click", e => {
-    $(e.currentTarget).toggleClass("active");
+$(".hamburger").on("click", () => {
+    $("nav").toggleClass("active");
+    $("body").toggleClass("active");
 });

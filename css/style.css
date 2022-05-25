@@ -52,6 +52,11 @@ body {
     font-family: var(--mid);
     font-weight: 300;
     line-height: inherit;
+    overflow: overlay;
+}
+
+body.active {
+    overflow: hidden;
 }
 
 a {
@@ -184,7 +189,7 @@ main {
     justify-content: space-between;
     cursor: default;
     width: 1140px;
-    height: 853px;
+    height: 863px;
     margin: 0 auto;
 }
 
@@ -416,6 +421,25 @@ footer div, footer a {
 
 /* 타블렛 */
 @media screen and (max-width:991.98px) {
+
+    body::before {
+        position: fixed;
+        opacity: 0;
+        content: "";
+        background-color: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(5px);
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        z-index: 2;
+        transition: all 0.3s linear;
+    }
+
+    body.active::before {
+        opacity: 1;
+    }
+
     .inner, #slider .content {
         width: 720px;
     }
@@ -424,8 +448,14 @@ footer div, footer a {
         display: none;
     }
 
-    nav {
+    .hamburger {
         cursor: pointer;
+    }
+
+    nav.active .hamburger {
+        position: absolute;
+        top: 20px;
+        right: 20px;
     }
 
     .hamburger::before, .hamburger::after, .hamburger div {
@@ -438,11 +468,7 @@ footer div, footer a {
         border-radius: 3px;
         margin: 7px 0;
         transition: all 0.5s ease;
-        z-index: 3;
-    }
-    nav.active .hamburger {
-
-        border: 1px solid #000;
+        z-index: 4;
     }
 
     nav.active .hamburger::before {
@@ -459,33 +485,78 @@ footer div, footer a {
         transform: scale(0);
     }
 
-    nav.active .main-menu {
+    nav .main-menu {
         position: fixed;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        justify-content: center;
-        width: 30%;
+        justify-content: flex-start;
+        width: 300px;
         height: 100%;
         right: 0;
         top: 0;
+        z-index: 3;
+        padding-top: 35%;
+        padding-left: 30px;
+        transform: translateX(300px);
+        transition: transform 0.3s ease;
         background-color: var(--main-color);
-        z-index: 2;
-        padding-left: 20px;
     }
 
-    nav.active .main-menu .nav-item {
-        padding: 20px 0;
+    nav.active .main-menu {
+        transform: translateX(0);
     }
 
-    nav.active .main-menu .nav-item a {
+    nav.active .nav-item {
+        padding: 0;
+        margin-bottom: 30px;
+    }
+
+    nav.active .nav-item a {
+        padding: 8px 20px;
         color: var(--white);
     }
 
-    nav.active .sub-menu {
-        position: relative;
+    nav.active .nav-item a:hover {
+        color: var(--main-color);
     }
 
+    /*  */
+    .nav-item a::before {
+        content: "";
+        width: 2px;
+        height: 100%;
+        left: 0;
+        top: 0;
+        transform: none;
+        background-color: var(--white);
+    }
+    
+    .nav-item a::after {
+        right: 0;
+        transform: none;
+    }
+
+    .nav-item a:hover::before,
+    .nav-item.active a::after {
+        width: 100%;
+        transition-duration: 0.2s;
+        z-index: -1;
+    }
+
+    .nav-item a:hover::after {
+        width: 0;
+    }
+
+    nav.active .sub-menu {
+        padding-left: 10px;
+        padding-top: 20px;
+        position: initial;
+    }
+
+    nav.active .sub-menu .nav-item {
+        text-align: left;
+    }
 
 }
 
