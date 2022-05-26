@@ -496,7 +496,7 @@ footer div, footer a {
         right: 0;
         top: 0;
         z-index: 3;
-        padding-top: 35%;
+        padding-top: 25%;
         padding-left: 30px;
         transform: translateX(300px);
         transition: transform 0.3s ease;
@@ -508,20 +508,20 @@ footer div, footer a {
     }
 
     nav.active .nav-item {
-        padding: 0;
-        margin-bottom: 30px;
+        padding: 20px 0;
     }
 
     nav.active .nav-item a {
-        padding: 8px 20px;
         color: var(--white);
+        padding: 8px 0;
+        font-size: 1rem;
+        transition: all 0.3s ease;
     }
 
-    nav.active .nav-item a:hover {
-        color: var(--main-color);
+    nav.active .nav-item:hover a {
+        padding-left: 20px;
     }
 
-    /*  */
     .nav-item a::before {
         content: "";
         width: 2px;
@@ -530,18 +530,20 @@ footer div, footer a {
         top: 0;
         transform: none;
         background-color: var(--white);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        transition-delay: 0.1s;
     }
-    
+
     .nav-item a::after {
         right: 0;
         transform: none;
     }
 
     .nav-item a:hover::before,
-    .nav-item.active a::after {
-        width: 100%;
-        transition-duration: 0.2s;
-        z-index: -1;
+    .nav-item:hover a::before {
+        opacity: 1;
+        width: 3px;
     }
 
     .nav-item a:hover::after {
@@ -549,13 +551,30 @@ footer div, footer a {
     }
 
     nav.active .sub-menu {
-        padding-left: 10px;
-        padding-top: 20px;
+        margin-top: 20px;
+        padding-left: 20px;
         position: initial;
     }
 
     nav.active .sub-menu .nav-item {
         text-align: left;
+        padding: 10px 0;
+    }
+
+    nav.active .sub-menu .nav-item:hover,
+    nav.active .sub-menu .nav-item a {
+        padding-left: 0;
+        font-family: var(--mid);
+    }
+
+    nav.active .sub-menu .nav-item:hover a {
+        text-shadow: 0.25px 0px 0.1px, -0.25px 0px 0.1px;
+    }
+
+    nav.active .sub-menu .nav-item a::before,
+    nav.active .sub-menu .nav-item a::after {
+        width: 0;
+        height: 0;
     }
 
 }
