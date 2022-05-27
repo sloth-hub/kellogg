@@ -52,7 +52,6 @@ body {
     font-family: var(--mid);
     font-weight: 300;
     line-height: inherit;
-    overflow: overlay;
 }
 
 body.active {
@@ -76,8 +75,6 @@ h3 {
 }
 
 /* 큰 데스크탑 */
-
-.container {}
 
 header {
     height: 74px;
@@ -219,6 +216,7 @@ main {
     font-size: 4.2rem;
     line-height: 4.8rem;
     white-space: pre-line;
+    padding-right: 40px;
 }
 
 .text-wrap h2 {
@@ -227,7 +225,7 @@ main {
     font-size: 1.3rem;
     white-space: pre-line;
     padding: 25px 0;
-    padding-right: 80px;
+    padding-right: 50px;
 }
 
 .swiper-slide-active .text-wrap h1,
@@ -290,7 +288,7 @@ main {
 }
 
 .swiper-slide-active .img-wrap .img-bg {
-    animation: scale_ 0.5s ease;
+    animation: scale_ 0.5s ease backwards;
     animation-delay: 0.5s;
 }
 
@@ -423,6 +421,7 @@ footer div, footer a {
 @media screen and (max-width:991.98px) {
 
     body::before {
+        display: none;
         position: fixed;
         opacity: 0;
         content: "";
@@ -438,6 +437,7 @@ footer div, footer a {
 
     body.active::before {
         opacity: 1;
+        display: block;
     }
 
     .inner, #slider .content {
@@ -577,19 +577,75 @@ footer div, footer a {
         height: 0;
     }
 
+    .text-wrap h1 {
+        font-size: 3rem;
+        line-height: 3.2rem;
+        padding-right: 0px;
+        letter-spacing: -0.1rem;
+    }
+
+    .text-wrap h2 {
+        font-size: 1rem;
+        padding-right: 20px;
+    }
+
+    .img-wrap img {
+        max-width: 300px;
+        min-height: auto;
+        max-height: 380px;
+    }
+
+    .img-wrap .img-bg {
+        width: 330px;
+        height: 330px;
+    }
+
 }
 
 /* 스마트폰 가로 */
 @media screen and (max-width:767.98px) {
     .inner, #slider .content {
-        width: 540px;
+        padding: 0 10px;
+        width: auto;
     }
+
+    header .inner {
+        width: 100%;
+    }
+
+    #slider .content {
+        flex-direction: column-reverse;
+        justify-content: center;
+    }
+
+    div[data-swiper-slide-index="2"] .img-wrap {
+        margin-bottom: 44px;
+    }
+
+    .text-wrap {
+        max-width: 80%;
+    }
+
+    .img-wrap img {
+        max-height: 100%;
+    }
+
 }
 
 /* 스마트폰 세로 */
 @media screen and (max-width:575.98px) {
-    .inner, #slider .content {
-        width: auto;
-        padding: 0 10px;
+
+    .text-wrap h1 {
+        font-size: 2.5rem;
+        line-height: 2.7rem;
     }
+
+    .img-wrap {
+        margin-bottom: 30px;
+    }
+
+    .new-prod {
+        padding-left: 2px;
+    }
+
 }
