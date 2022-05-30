@@ -64,10 +64,14 @@ a {
 
 h1 {
     font-family: var(--h1);
+    font-size: 4.2rem;
+    transition: font-size 0.3 ease;
 }
 
 h2 {
     font-family: var(--h2);
+    font-size: 1.3rem;
+    transition: font-size 0.3 ease;
 }
 
 h3 {
@@ -85,11 +89,13 @@ header {
 .inner {
     width: 1140px;
     margin: 0 auto;
+    padding: 100px 0;
     display: flex;
     align-items: center;
 }
 
 header .inner {
+    padding: 0;
     justify-content: space-between;
 }
 
@@ -179,6 +185,8 @@ main {
     margin: 0 auto;
 }
 
+/* ----------- 슬라이더 ----------- */
+
 #slider .content {
     display: flex;
     flex-direction: row;
@@ -192,6 +200,10 @@ main {
 
 .swiper-pagination-bullet-active {
     background-color: var(--main-color);
+}
+
+.swiper-horizontal>.swiper-pagination-bullets {
+    bottom: 50px;
 }
 
 .new-prod {
@@ -213,7 +225,6 @@ main {
 }
 
 .text-wrap h1 {
-    font-size: 4.2rem;
     line-height: 4.8rem;
     white-space: pre-line;
     padding-right: 40px;
@@ -222,7 +233,6 @@ main {
 .text-wrap h2 {
     font-family: var(--h3);
     font-weight: 500;
-    font-size: 1.3rem;
     white-space: pre-line;
     padding: 25px 0;
     padding-right: 50px;
@@ -361,8 +371,15 @@ main {
     }
 }
 
+/* ----------- 시리얼 ----------- */
+
 #cereals .inner {
     flex-direction: column;
+}
+
+#cereals h1 {
+    font-size: 2rem;
+    padding: 30px 0 60px;
 }
 
 #cereals ul {
@@ -380,10 +397,74 @@ main {
     width: 300px;
     height: 300px;
     overflow: hidden;
+    border-radius: 10px;
+    margin-left: 40px;
+    box-shadow: 10px 10px 20px rgba(var(--shadow), 0.15);
+    transition: all 0.3s ease;
+}
+
+#cereals ul li:nth-child(3n-2) {
+    margin-left: 0;
+}
+
+#cereals ul li:nth-child(-n+3) {
+    margin-bottom: 40px;
+}
+
+#cereals .caption {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 1;
+    width: 100%;
+    height: 50%;
+    left: 0;
+    bottom: 0;
+    padding-left: 30px;
+    border-top-left-radius: 30px;
+    background-color: var(--white);
+    box-shadow: 0px -10px 15px rgba(var(--shadow), 0.1);
+    transform: translateY(67px);
+    transition: all 0.3s ease;
+}
+
+#cereals ul li::after {
+    position: absolute;
+    display: block;
+    content: "";
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    backdrop-filter: blur(5px);
+    transition: opacity 0.3s ease;
+}
+
+#cereals .caption h2 {
+    font-size: 1.1rem;
+}
+
+#cereals ul li:hover .caption {
+    transform: translateY(0);
+}
+
+#cereals ul li:hover::after {
+    opacity: 1;
+}
+
+#cereals ul li .more-btn {
+    margin-top: 30px;
+    padding: 3px 10px 5px;
+    transition: margin-top 0.2s ease;
+}
+
+#cereals ul li:hover .more-btn {
+    margin-top: 15px;
 }
 
 #cereals ul li img {
-    max-width: 900px;
+    max-width: 800px;
+    transition: all 0.3s ease;
 }
 
 footer {
@@ -401,7 +482,7 @@ footer div, footer a {
         width: 940px;
     }
 
-    .text-wrap h1 {
+    h1 {
         font-size: 3.8rem;
     }
 
@@ -414,6 +495,15 @@ footer div, footer a {
     .img-wrap .img-bg {
         width: 400px;
         height: 400px;
+    }
+
+    #cereals ul li {
+        width: 250px;
+        height: 250px;
+    }
+
+    #cereals ul li img {
+        max-width: 650px;
     }
 }
 
@@ -598,6 +688,20 @@ footer div, footer a {
     .img-wrap .img-bg {
         width: 330px;
         height: 330px;
+    }
+
+    #cereals ul li {
+        width: 200px;
+        height: 200px;
+        margin-left: 30px;
+    }
+
+    #cereals ul li:nth-child(-n+3) {
+        margin-bottom: 30px;
+    }
+
+    #cereals ul li img {
+        max-width: 500px;
     }
 
 }
