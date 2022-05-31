@@ -378,7 +378,7 @@ main {
 }
 
 #cereals h1 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     padding: 30px 0 60px;
 }
 
@@ -397,7 +397,7 @@ main {
     width: 300px;
     height: 300px;
     overflow: hidden;
-    border-radius: 10px;
+    border-radius: 30px;
     margin-left: 40px;
     box-shadow: 10px 10px 20px rgba(var(--shadow), 0.15);
     transition: all 0.3s ease;
@@ -421,7 +421,7 @@ main {
     height: 50%;
     left: 0;
     bottom: 0;
-    padding-left: 30px;
+    padding-left: 40px;
     border-top-left-radius: 30px;
     background-color: var(--white);
     box-shadow: 0px -10px 15px rgba(var(--shadow), 0.1);
@@ -441,7 +441,11 @@ main {
 }
 
 #cereals .caption h2 {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
+}
+
+#cereals .caption span {
+    color: var(--main-color);
 }
 
 #cereals ul li:hover .caption {
@@ -454,7 +458,7 @@ main {
 
 #cereals ul li .more-btn {
     margin-top: 30px;
-    padding: 3px 10px 5px;
+    padding: 3px 15px 5px;
     transition: margin-top 0.2s ease;
 }
 
@@ -504,6 +508,18 @@ footer div, footer a {
 
     #cereals ul li img {
         max-width: 650px;
+    }
+
+    #cereals .caption {
+        transform: translateY(58px);
+    }
+
+    #cereals .caption h2 {
+        font-size: 1.15rem;
+    }
+
+    #cereals ul li .more-btn {
+        margin-top: 20px;
     }
 }
 
@@ -690,6 +706,10 @@ footer div, footer a {
         height: 330px;
     }
 
+    #cereals h1 {
+        font-size: 2rem;
+    }
+
     #cereals ul li {
         width: 200px;
         height: 200px;
@@ -702,6 +722,24 @@ footer div, footer a {
 
     #cereals ul li img {
         max-width: 500px;
+    }
+
+    #cereals .caption {
+        transform: translateY(46px);
+    }
+
+    #cereals .caption h2 {
+        font-size: 1rem;
+    }
+
+    #cereals ul li .more-btn {
+        margin-top: 13px;
+        font-size: 0.8rem;
+        padding: 2px 10px 4px;
+    }
+
+    #cereals ul li:hover .more-btn {
+        margin-top: 10px;
     }
 
 }
