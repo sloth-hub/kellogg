@@ -431,17 +431,6 @@ main {
     transform: translateY(67px);
 }
 
-#cereals ul li::after {
-    position: absolute;
-    display: block;
-    content: "";
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    backdrop-filter: blur(5px);
-    transition: opacity 0.3s ease;
-}
-
 #cereals .caption h2 {
     font-size: 1.3rem;
 }
@@ -452,10 +441,6 @@ main {
 
 #cereals ul li:hover .caption {
     transform: translateY(0);
-}
-
-#cereals ul li:hover::after {
-    opacity: 1;
 }
 
 #cereals ul li .more-btn {
@@ -475,11 +460,15 @@ main {
 
 /* ----------- 베러데이즈 ----------- */
 
+#betterdays .inner {
+    width: 100%;
+}
+
 #betterdays .content {
     position: relative;
     display: flex;
     width: 100%;
-    min-height: 640px;
+    min-height: 720px;
     justify-content: center;
     align-content: center;
     flex-direction: column;
@@ -487,7 +476,7 @@ main {
 }
 
 #betterdays .caption {
-    width: 35%;
+    width: 400px;
     text-align: left;
     padding: 40px 20px;
     border-radius: 10px;
@@ -528,14 +517,10 @@ main {
 }
 
 #betterdays .caption h3 {
-    font-family: var(--mid);
+    font-family: var(--h3);
     line-height: 1.8rem;
     padding-left: 12px;
     margin-bottom: 20px;
-}
-
-#betterdays .caption h2 {
-
 }
 
 #betterdays .caption:hover::after,
@@ -619,9 +604,6 @@ footer div, footer a {
         margin-top: 20px;
     }
 
-    #betterdays .caption .more::before {
-        width: 68%;
-    }
 }
 
 /* 타블렛 */
@@ -649,6 +631,7 @@ footer div, footer a {
 
     .inner, #slider .content {
         width: 720px;
+        padding: 80px 0px;
     }
 
     .main-menu {
@@ -843,13 +826,21 @@ footer div, footer a {
         margin-top: 10px;
     }
 
+    #betterdays .content {
+        min-height: 640px;
+    }
+
+    #betterdays .caption {
+        width: 320px;
+    }
+
     #betterdays .caption h2 {
         font-size: 2.5rem;
         line-height: 2.5rem;
     }
 
     #betterdays .caption .more::before {
-        width: 56%;
+        width: 67%;
     }
 
 }
@@ -857,7 +848,7 @@ footer div, footer a {
 /* 스마트폰 가로 */
 @media screen and (max-width:767.98px) {
     .inner, #slider .content {
-        padding: 0 10px;
+        padding: 60px 10px;
         width: auto;
     }
 
@@ -881,21 +872,53 @@ footer div, footer a {
     .img-wrap img {
         max-height: 100%;
     }
-    
+
+    #cereals ul {
+        padding: 0 45px;
+    }
+
+    #cereals ul li:nth-child(2n+1) {
+        margin-left: 0;
+    }
+
+    #cereals ul li:nth-child(even) {
+        margin-left: 40px;
+        margin-bottom: 40px;
+    }
+
+    #cereals .caption {
+        padding-left: 30px;
+    }
+
     #betterdays .inner {
         padding: 0;
     }
+
     #betterdays .caption {
         width: 252px;
     }
+
     #betterdays .caption .more::before {
         width: 120px;
+    }
+
+    #betterdays .caption::after {
+        background-size: 120%;
+    }
+
+    #betterdays .caption:hover::after,
+    #betterdays .caption:hover h2,
+    #betterdays .caption:hover h3 {
+        background-size: 130%;
     }
 
 }
 
 /* 스마트폰 세로 */
 @media screen and (max-width:575.98px) {
+    .inner, #slider .content {
+        padding: 0 10px;
+    }
 
     .text-wrap h1 {
         font-size: 2.5rem;
@@ -908,6 +931,40 @@ footer div, footer a {
 
     .new-prod {
         padding-left: 2px;
+    }
+
+    #cereals h1 {
+        font-size: 1.5rem;
+    }
+    #cereals ul {
+        padding: 0;
+    }
+
+    #cereals ul li {
+        width: 170px;
+        height: 170px;
+    }
+
+    #cereals ul li img {
+        max-width: 400px;
+    }
+
+    #cereals .caption {
+        transform: translateY(42px);
+    }
+
+    #betterdays .caption {
+        padding: 25px 20px;
+    }
+
+    #betterdays .caption h2 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    #betterdays .caption h3 {
+        font-size: 0.9rem;
+        margin-bottom: 10px;
     }
 
 }
