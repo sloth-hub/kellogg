@@ -76,6 +76,16 @@ h3 {
     font-family: var(--h3);
 }
 
+.hide {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: polygon(0 0, 0 0, 0 0);
+
+}
+
 /* 큰 데스크탑 */
 
 header {
@@ -462,6 +472,7 @@ main {
 
 #betterdays .inner {
     width: 100%;
+    padding: 0;
 }
 
 #betterdays .content {
@@ -553,9 +564,51 @@ main {
     color: var(--black);
 }
 
+/* ----------- 레시피 ----------- */
+
+#recipes {
+    background-color: var(--main-color);
+}
+
+#recipes div, #recipes ul, #recipes ul li a {
+    display: flex;
+}
+
+#recipes div {
+    flex-direction: column;
+    align-items: center;
+}
+
+#recipes .title {
+    width: 300px;
+    margin-bottom: 80px;
+}
+
+#recipes ul li a {
+    flex-direction: column-reverse;
+}
+
+#recipes ul li img {
+    width: 100%;
+}
+
+#recipes .more, #recipes h2 {
+    color: var(--white);
+}
+
+#recipes .more {
+    font-family: var(--h1);
+    width: fit-content;
+    align-self: flex-end;
+}
+
 footer {
     width: 100%;
     background-color: var(--main-color);
+}
+
+footer .inner {
+    padding: 40px 0;
 }
 
 footer div, footer a {
@@ -856,6 +909,10 @@ footer div, footer a {
         width: 100%;
     }
 
+    footer .inner {
+        padding: 30px 10px;
+    }
+
     #slider .content {
         flex-direction: column-reverse;
         justify-content: center;
@@ -936,6 +993,7 @@ footer div, footer a {
     #cereals h1 {
         font-size: 1.5rem;
     }
+
     #cereals ul {
         padding: 0;
     }
