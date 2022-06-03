@@ -515,15 +515,6 @@ main {
     line-height: 3.2rem;
     text-align: center;
     text-transform: uppercase;
-}
-
-#betterdays .caption h3 {
-    font-family: var(--mid);
-    padding-left: 12px;
-    margin-bottom: 20px;
-}
-
-#betterdays .caption h2 {
     color: transparent;
     -webkit-background-clip: text;
     background-clip: text;
@@ -532,8 +523,19 @@ main {
     background-size: 100%;
     background-position: center;
     background-repeat: no-repeat;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     transition: background-size 0.3s ease;
+}
+
+#betterdays .caption h3 {
+    font-family: var(--mid);
+    line-height: 1.8rem;
+    padding-left: 12px;
+    margin-bottom: 20px;
+}
+
+#betterdays .caption h2 {
+
 }
 
 #betterdays .caption:hover::after,
@@ -553,6 +555,7 @@ main {
 
 #betterdays .caption .more {
     font-family: var(--h1);
+    color: var(--D-gray);
     font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 0.5rem;
@@ -562,7 +565,7 @@ main {
 }
 
 #betterdays .more:hover {
-    color: var(--main-color);
+    color: var(--black);
 }
 
 footer {
