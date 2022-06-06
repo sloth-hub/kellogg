@@ -387,7 +387,7 @@ main {
 
 #cereals h1 {
     font-size: 2.5rem;
-    padding: 30px 0 60px;
+    padding-bottom: 100px;
 }
 
 #cereals ul {
@@ -471,15 +471,14 @@ main {
 /* ----------- 베러데이즈 ----------- */
 
 #betterdays .inner {
+    position: relative;
     width: 100%;
-    padding: 0;
 }
 
 #betterdays .content {
-    position: relative;
     display: flex;
     width: 100%;
-    min-height: 720px;
+    height: 720px;
     justify-content: center;
     align-content: center;
     flex-direction: column;
@@ -503,7 +502,7 @@ main {
     width: 100%;
     height: 100%;
     background: url(../images/betterdays.jpg) no-repeat;
-    background-size: 100%;
+    background-size: 120%;
     background-position: center;
     transition: background-size 0.3s ease;
     z-index: -1;
@@ -520,11 +519,11 @@ main {
     background-clip: text;
     background-color: #ffaf74;
     background-image: url(../images/betterdays.jpg);
-    background-size: 100%;
+    background-size: 120%;
     background-position: center;
     background-repeat: no-repeat;
     margin-bottom: 40px;
-    transition: background-size 0.3s ease;
+    transition: background-size 0.3s ease, font-size 0.3s ease;
 }
 
 #betterdays .caption h3 {
@@ -537,7 +536,7 @@ main {
 #betterdays .caption:hover::after,
 #betterdays .caption:hover h2,
 #betterdays .caption:hover h3 {
-    background-size: 120%;
+    background-size: 140%;
 }
 
 #betterdays .caption .more::before {
@@ -844,6 +843,7 @@ footer div, footer a {
     }
 
     #cereals h1 {
+        padding-bottom: 80px;
         font-size: 2rem;
     }
 
@@ -880,7 +880,7 @@ footer div, footer a {
     }
 
     #betterdays .content {
-        min-height: 640px;
+        height: 580px;
     }
 
     #betterdays .caption {
@@ -904,6 +904,10 @@ footer div, footer a {
         padding: 60px 10px;
         width: auto;
     }
+
+    /* #betterdays .inner {
+        padding: 0;
+    } */
 
     header .inner {
         width: 100%;
@@ -947,35 +951,22 @@ footer div, footer a {
         padding-left: 30px;
     }
 
-    #betterdays .inner {
-        padding: 0;
+    #betterdays .content {
+        height: auto;
     }
 
     #betterdays .caption {
-        width: 252px;
+        width: 230px;
     }
 
     #betterdays .caption .more::before {
-        width: 120px;
-    }
-
-    #betterdays .caption::after {
-        background-size: 120%;
-    }
-
-    #betterdays .caption:hover::after,
-    #betterdays .caption:hover h2,
-    #betterdays .caption:hover h3 {
-        background-size: 130%;
+        width: 98px;
     }
 
 }
 
 /* 스마트폰 세로 */
 @media screen and (max-width:575.98px) {
-    .inner, #slider .content {
-        padding: 0 10px;
-    }
 
     .text-wrap h1 {
         font-size: 2.5rem;
@@ -1023,6 +1014,17 @@ footer div, footer a {
     #betterdays .caption h3 {
         font-size: 0.9rem;
         margin-bottom: 10px;
+    }
+
+    #betterdays .caption::after,
+    #betterdays .caption h2 {
+        background-size: 160%;
+    }
+
+    #betterdays .caption:hover::after,
+    #betterdays .caption:hover h2,
+    #betterdays .caption:hover h3 {
+        background-size: 180%;
     }
 
 }
