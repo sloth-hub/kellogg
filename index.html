@@ -16,6 +16,7 @@
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <link rel="stylesheet" href="./css/style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
 <body>
@@ -170,7 +171,7 @@
             <article id="nutritions">
                 <div class="inner">
                     <ul>
-                        <li>
+                        <li data-aos="flip-left" data-aos-duration="3000" data-aos-offset="200" data-aos-delay="300">
                             <div>
                                 <img src="./images/cereal_nutrition.jpg" alt="밀">
                             </div>
@@ -180,7 +181,7 @@
                                 <a href="" class="more-btn">더 알아보기</a>
                             </div>
                         </li>
-                        <li>
+                        <li data-aos="flip-left" data-aos-duration="3000" data-aos-offset="300" data-aos-delay="1000">
                             <div>
                                 <img src="./images/cereal_innovation.png" alt="시리얼">
                             </div>
@@ -245,6 +246,10 @@
     </div>
     <script src="./js/index.js"></script>
     <script src="./js/swiper.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 
 </html>
