@@ -1,6 +1,6 @@
 @font-face {
-    font-family: 'S-CoreDream-3Light';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+    font-family: 'S-CoreDream-4Regular';
+     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -30,14 +30,14 @@
     --main-color: #ba0c2f;
     --shadow: 61, 30, 40;
     --black: #2B2B2B;
-    --D-gray: #888888;
-    --M-gray: #dadce0;
+    --D-gray: #969494;
+    --M-gray: #cacbce;
     --L-gray: #f3f3f5;
     --white: #fff;
     --h1: 'S-CoreDream-7ExtraBold';
     --h2: 'S-CoreDream-6Bold';
     --h3: 'S-CoreDream-5Medium';
-    --mid: 'S-CoreDream-3Light';
+    --mid: 'S-CoreDream-4Regular';
 }
 
 /* reset */
@@ -601,7 +601,8 @@ main {
 }
 
 #nutritions ul li:hover {
-    box-shadow: 0px 10px 15px rgba(var(--shadow), 0.1);
+    transform: translate(3px, 3px);
+    box-shadow: 0px 5px 5px rgba(var(--shadow), 0.1);
 }
 
 #nutritions ul li div {
@@ -645,6 +646,7 @@ main {
 
 #nutritions ul li h3 {
     font-family: var(--mid);
+    color: var(--D-gray);
     font-size: 0.9rem;
 }
 
