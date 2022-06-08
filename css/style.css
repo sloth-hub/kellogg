@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'S-CoreDream-4Regular';
-     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff') format('woff');
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -44,13 +44,13 @@
 
 * {
     box-sizing: border-box;
-    color: var(--black);
 }
 
 body {
     font-family: var(--mid);
     font-weight: 300;
     line-height: inherit;
+    color: var(--black);
 }
 
 body.active {
@@ -59,6 +59,7 @@ body.active {
 
 a {
     text-decoration: none;
+    color: var(--black);
 }
 
 h1 {
@@ -427,7 +428,7 @@ main {
     margin-bottom: 40px;
 }
 
-.caption {
+#cereals .caption {
     transition: all 0.3s ease;
     cursor: default;
     background-color: var(--white);
@@ -477,110 +478,67 @@ main {
     transition: all 0.3s ease;
 }
 
-/* ----------- 베러데이즈 ----------- */
+/* ----------- 헬스 앤 뉴트리션 ----------- */
 
-#betterdays .inner {
+#nutritions {
     position: relative;
-    width: 100%;
+    background-image: url(../images/betterdays_2.jpg);
+    background-position: center 10%;
 }
 
-#betterdays .content {
-    display: flex;
-    width: 100%;
-    height: 720px;
-    justify-content: center;
-    align-content: center;
-    flex-direction: column;
-    align-items: center;
-}
-
-#betterdays .caption {
-    width: 400px;
-    text-align: left;
-    padding: 40px 20px;
-    border-radius: 10px;
-    box-shadow: 0px 10px 15px rgba(var(--shadow), 0.1);
-}
-
-#betterdays .caption::after {
+#nutritions::after {
     content: "";
-    display: block;
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background: url(../images/betterdays.jpg) no-repeat;
-    background-size: 120%;
-    background-position: center;
-    transition: background-size 0.3s ease;
-    z-index: -1;
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
-#betterdays .caption h2 {
-    font-family: var(--h1);
-    font-size: 3.2rem;
-    line-height: 3.2rem;
+#nutritions .inner {
+    flex-direction: column;
+}
+
+#nutritions .title {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 80px;
+    z-index: 1;
+}
+
+#nutritions .title h1 {
     text-align: center;
     text-transform: uppercase;
-    color: transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
-    background-color: #ffaf74;
-    background-image: url(../images/betterdays.jpg);
-    background-size: 120%;
-    background-position: center;
-    background-repeat: no-repeat;
+    color: var(--main-color);
     margin-bottom: 40px;
-    transition: background-size 0.3s ease, font-size 0.3s ease;
+    transition: all 0.3s ease;
 }
 
-#betterdays .caption h3 {
+#nutritions .title p {
     font-family: var(--h3);
-    line-height: 1.8rem;
-    padding-left: 12px;
-    margin-bottom: 20px;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
 }
 
-#betterdays .caption:hover::after,
-#betterdays .caption:hover h2,
-#betterdays .caption:hover h3 {
-    background-size: 140%;
-}
-
-#betterdays .caption .more::before {
-    content: "";
-    display: inline-block;
-    width: 74%;
-    height: 4px;
-    margin-right: 10px;
-    border-top: 1px solid var(--M-gray);
-}
-
-#betterdays .caption .more {
+#nutritions .title .more {
     font-family: var(--h1);
-    color: var(--M-gray);
     font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 0.5rem;
-    margin-left: 12px;
     border-radius: 5px;
+    align-self: flex-end;
     transition: color 0.2s linear;
 }
 
-#betterdays .more:hover {
-    color: var(--D-gray);
-}
-
-/* ----------- 헬스 앤 뉴트리션 ----------- */
-
-#nutritions {
-    background-color: var(--L-gray);
+#nutritions .title .more:hover {
+    color: var(--main-color);
 }
 
 #nutritions ul {
     display: flex;
     flex-direction: row;
+    z-index: 1;
 }
 
 #nutritions ul li {
@@ -592,7 +550,7 @@ main {
     width: 100%;
     border-radius: 5px;
     background-color: var(--white);
-    box-shadow: 0px 10px 15px rgba(var(--shadow), 0.1);
+    box-shadow: 0px 10px 15px rgba(var(--shadow), 0.2);
     transition: all 0.3s ease;
 }
 
@@ -602,7 +560,7 @@ main {
 
 #nutritions ul li:hover {
     transform: translate(3px, 3px);
-    box-shadow: 0px 5px 5px rgba(var(--shadow), 0.1);
+    box-shadow: 0px 5px 5px rgba(var(--shadow), 0.2);
 }
 
 #nutritions ul li div {
@@ -644,28 +602,25 @@ main {
     border-top: 1px solid var(--M-gray);
 }
 
-#nutritions ul li h3 {
+#nutritions ul li p {
     font-family: var(--mid);
     color: var(--D-gray);
     font-size: 0.9rem;
 }
 
-#nutritions .more-btn {
+#nutritions ul li .more {
     font-size: 0.8rem;
     padding: 8px 16px;
     color: var(--M-gray);
     border: 1px solid var(--M-gray);
     border-radius: 5px;
     align-self: flex-end;
+    transition: all 0.3s ease;
 }
 
-#nutritions .more-btn::after {
-    background-color: var(--M-gray);
-    border-radius: 5px;
-}
-
-#nutritions .more-btn:hover {
-    color: var(--white);
+#nutritions ul li .more:hover {
+    color: var(--D-gray);
+    border: 1px solid var(--D-gray);
 }
 
 /* ----------- 레시피 ----------- */
@@ -684,6 +639,10 @@ main {
     margin-bottom: 80px;
 }
 
+#recipes ul {
+    margin-bottom: 40px;
+}
+
 #recipes ul li a {
     flex-direction: column-reverse;
 }
@@ -692,12 +651,13 @@ main {
     width: 100%;
 }
 
-#recipes h2 {}
+#recipes h2 {
+    padding-top: 20px;
+}
 
-#recipes .more {
-    font-family: var(--h1);
-    width: fit-content;
+#recipes .more-btn {
     align-self: flex-end;
+    padding: 10px 28px;
 }
 
 footer {
@@ -1010,7 +970,7 @@ footer div, footer a {
 
     #nutritions ul li div:last-child {
         width: 65%;
-        justify-content: space-evenly;
+        justify-content: space-around;
     }
 
 }

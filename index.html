@@ -17,6 +17,7 @@
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <link rel="stylesheet" href="./css/style.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -117,37 +118,37 @@
             </article>
             <article id="cereals">
                 <div class="inner">
-                    <h1>켈로그의 다양한 브랜드를 만나보세요!</h1>
+                    <h1 data-aos="fade">켈로그의 다양한 브랜드를 만나보세요!</h1>
                     <ul>
-                        <li>
+                        <li data-aos="fade-up" data-aos-offset="100" data-aos-delay="300">
                             <div class="caption">
                                 <h2><span>#</span> 클래식 시리얼</h2>
                                 <a href="" class="more-btn">more</a>
                             </div>
                             <img src="./images/amf_bt.jpg" alt="클래식 시리얼">
                         </li>
-                        <li>
+                        <li data-aos="fade-up" data-aos-offset="200" data-aos-delay="600">
                             <div class="caption">
                                 <h2><span>#</span> 초코 시리얼</h2>
                                 <a href="" class="more-btn">more</a>
                             </div>
                             <img src="./images/coco_bt.jpg" alt="초코 시리얼">
                         </li>
-                        <li>
+                        <li data-aos="fade-up" data-aos-offset="300" data-aos-delay="900">
                             <div class="caption">
                                 <h2><span>#</span> 그래놀라</h2>
                                 <a href="" class="more-btn">more</a>
                             </div>
                             <img src="./images/rg_bt.jpg" alt="그래놀라">
                         </li>
-                        <li>
+                        <li data-aos="fade-up" data-aos-offset="200" data-aos-delay="1200">
                             <div class="caption">
                                 <h2><span>#</span> 프로틴</h2>
                                 <a href="" class="more-btn">more</a>
                             </div>
                             <img src="./images/pg_dc_bt.jpg" alt="프로틴">
                         </li>
-                        <li>
+                        <li data-aos="fade-up" data-aos-offset="300" data-aos-delay="1500">
                             <div class="caption">
                                 <h2><span>#</span> 켈로그바</h2>
                                 <a href="" class="more-btn">more</a>
@@ -157,38 +158,32 @@
                     </ul>
                 </div>
             </article>
-            <article id="betterdays">
+            <article id="nutritions" data-aos="fade" data-aos-duration="1000" data-aos-offset="300">
                 <div class="inner">
-                    <div class="content">
-                        <div class="caption">
-                            <h2>Better Days</h2>
-                            <h3>더 나은 내일을 만들기 위해 110여년 동안 기울여온 켈로그의 노력</h3>
-                            <a href="" class="more">more</a>
-                        </div>
+                    <div class="title" data-aos="fade" data-aos-duration="1000" data-aos-offset="400">
+                        <h1>Better Days</h1>
+                        <p>더 나은 내일을 만들기 위해 110여년 동안 기울여온 켈로그의 노력</p>
+                        <a href="" class="more"><i class="fa-solid fa-angle-right"></i> more</a>
                     </div>
-                </div>
-            </article>
-            <article id="nutritions">
-                <div class="inner">
-                    <ul>
-                        <li data-aos="flip-left" data-aos-duration="3000" data-aos-offset="200" data-aos-delay="300">
+                    <ul data-aos="fade" data-aos-duration="1000" data-aos-offset="400">
+                        <li data-aos="fade-up" data-aos-duration="1300" data-aos-delay="1000" data-aos-offset="400">
                             <div>
                                 <img src="./images/cereal_nutrition.jpg" alt="밀">
                             </div>
                             <div>
                                 <h2>시리얼의 영양</h2>
-                                <h3>켈로그 시리얼로 하루 동안 필요한 다양한 영양소를 보충하며 풍요롭고 건강한 일상을 즐겨보세요. </h3>
-                                <a href="" class="more-btn">더 알아보기</a>
+                                <p>켈로그 시리얼로 하루 동안 필요한 다양한 영양소를 보충하며 풍요롭고 건강한 일상을 즐겨보세요. </p>
+                                <a href="" class="more">더 알아보기</a>
                             </div>
                         </li>
-                        <li data-aos="flip-left" data-aos-duration="3000" data-aos-offset="300" data-aos-delay="1000">
+                        <li data-aos="fade-up" data-aos-duration="1300" data-aos-delay="1500" data-aos-offset="450">
                             <div>
                                 <img src="./images/cereal_innovation.png" alt="시리얼">
                             </div>
                             <div>
                                 <h2>시리얼의 혁신</h2>
-                                <h3>세계 최초로 아침 식사용 시리얼을 개발한 후로 지난 100년 동안 시리얼은 더 맛있고 건강하게 진화하고 있습니다.</h3>
-                                <a href="" class="more-btn">더 알아보기</a>
+                                <p>세계 최초로 아침 식사용 시리얼을 개발한 후로 지난 100년 동안 시리얼은 더 맛있고 건강하게 진화하고 있습니다.</p>
+                                <a href="" class="more">더 알아보기</a>
                             </div>
                         </li>
                     </ul>
@@ -198,7 +193,8 @@
                 <div class="inner">
                     <div>
                         <h1 class="hide">Recipes</h1>
-                        <img class="title" src="./images/img_recipes_title.png" alt="kellogg's amazing kreations">
+                        <img class="title" src="./images/img_recipes_title.png" alt="kellogg's amazing kreations"
+                            data-aos="zoom-in" data-aos-duration="500" data-aos-offset="400">
                         <ul>
                             <li>
                                 <a href="">
@@ -219,7 +215,7 @@
                                 </a>
                             </li>
                         </ul>
-                        <a class="more" href="">더보기</a>
+                        <a class="more-btn" href="">더 알아보기</a>
                     </div>
                 </div>
             </article>
@@ -235,17 +231,15 @@
                     서울본사 | 06235 서울시 강남구 테헤란로 134 15층 (서울 강남구 역삼동 735-3 포스코타워 역삼 15층)
                 </div>
                 <div class="sns">
-                    <ul>
-                        <li><a href="">유튜브</a></li>
-                        <li><a href="">인스타</a></li>
-                        <li><a href="">블로그</a></li>
-                    </ul>
-                </div>
+                    <a href=""><i class="fa-brands fa-youtube fa-2x"></i><span class="hide">유튜브</span></a>
+                    <a href=""><i class="fa-brands fa-instagram fa-2x"></i><span class="hide">인스타그램</span></a>
+            </div>
             </div>
         </footer>
     </div>
     <script src="./js/index.js"></script>
     <script src="./js/swiper.js"></script>
+    <script src="https://kit.fontawesome.com/6a8d6017e7.js" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
