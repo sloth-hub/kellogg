@@ -478,15 +478,15 @@ main {
     transition: all 0.3s ease;
 }
 
-/* ----------- 헬스 앤 뉴트리션 ----------- */
+/* ----------- 베러데이즈 ----------- */
 
-#nutritions {
+#betterdays {
     position: relative;
     background-image: url(../images/betterdays_2.jpg);
     background-position: center 10%;
 }
 
-#nutritions::after {
+#betterdays::after {
     content: "";
     position: absolute;
     left: 0;
@@ -496,18 +496,18 @@ main {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
-#nutritions .inner {
+#betterdays .inner {
     flex-direction: column;
 }
 
-#nutritions .title {
+#betterdays .title {
     display: flex;
     flex-direction: column;
     margin-bottom: 80px;
     z-index: 1;
 }
 
-#nutritions .title h1 {
+#betterdays .title h1 {
     text-align: center;
     text-transform: uppercase;
     color: var(--main-color);
@@ -515,13 +515,13 @@ main {
     transition: all 0.3s ease;
 }
 
-#nutritions .title p {
+#betterdays .title p {
     font-family: var(--h3);
     font-size: 1.2rem;
     margin-bottom: 30px;
 }
 
-#nutritions .title .more {
+#betterdays .title .more {
     font-family: var(--h1);
     font-size: 0.8rem;
     text-transform: uppercase;
@@ -531,17 +531,17 @@ main {
     transition: color 0.2s linear;
 }
 
-#nutritions .title .more:hover {
+#betterdays .title .more:hover {
     color: var(--main-color);
 }
 
-#nutritions ul {
+#betterdays ul {
     display: flex;
     flex-direction: row;
     z-index: 1;
 }
 
-#nutritions ul li {
+#betterdays ul li {
     position: relative;
     cursor: default;
     display: flex;
@@ -554,20 +554,20 @@ main {
     transition: all 0.3s ease;
 }
 
-#nutritions ul li+li {
+#betterdays ul li+li {
     margin-left: 30px;
 }
 
-#nutritions ul li:hover {
+#betterdays ul li:hover {
     transform: translate(3px, 3px);
     box-shadow: 0px 5px 5px rgba(var(--shadow), 0.2);
 }
 
-#nutritions ul li div {
+#betterdays ul li div {
     display: flex;
 }
 
-#nutritions ul li div:first-child {
+#betterdays ul li div:first-child {
     position: relative;
     align-items: center;
     justify-content: center;
@@ -576,7 +576,7 @@ main {
     height: 250px;
 }
 
-#nutritions ul li div:last-child {
+#betterdays ul li div:last-child {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -584,16 +584,16 @@ main {
     padding: 30px;
 }
 
-#nutritions ul li img {
+#betterdays ul li img {
     width: 120%;
     filter: saturate(120%);
 }
 
-#nutritions ul li h2 {
+#betterdays ul li h2 {
     color: var(--main-color);
 }
 
-#nutritions ul li h2::after {
+#betterdays ul li h2::after {
     content: "";
     display: block;
     width: 50px;
@@ -602,13 +602,13 @@ main {
     border-top: 1px solid var(--M-gray);
 }
 
-#nutritions ul li p {
+#betterdays ul li p {
     font-family: var(--mid);
     color: var(--D-gray);
     font-size: 0.9rem;
 }
 
-#nutritions ul li .more {
+#betterdays ul li .more {
     font-size: 0.8rem;
     padding: 8px 16px;
     color: var(--M-gray);
@@ -618,7 +618,7 @@ main {
     transition: all 0.3s ease;
 }
 
-#nutritions ul li .more:hover {
+#betterdays ul li .more:hover {
     color: var(--D-gray);
     border: 1px solid var(--D-gray);
 }
@@ -942,33 +942,16 @@ footer div, footer a {
         margin-top: 10px;
     }
 
-    #betterdays .content {
-        height: 440px;
-    }
-
-    #betterdays .caption {
-        width: 320px;
-    }
-
-    #betterdays .caption h2 {
-        font-size: 2.5rem;
-        line-height: 2.5rem;
-    }
-
-    #betterdays .caption .more::before {
-        width: 67%;
-    }
-
-    #nutritions ul {
+    #betterdays ul {
         flex-direction: column;
     }
 
-    #nutritions ul li+li {
+    #betterdays ul li+li {
         margin-left: 0;
         margin-top: 40px;
     }
 
-    #nutritions ul li div:last-child {
+    #betterdays ul li div:last-child {
         width: 65%;
         justify-content: space-around;
     }
@@ -1024,18 +1007,6 @@ footer div, footer a {
         padding-left: 30px;
     }
 
-    #betterdays .content {
-        height: auto;
-    }
-
-    #betterdays .caption {
-        width: 230px;
-    }
-
-    #betterdays .caption .more::before {
-        width: 98px;
-    }
-
 }
 
 /* 스마트폰 세로 */
@@ -1075,29 +1046,42 @@ footer div, footer a {
         transform: translateY(42px);
     }
 
-    #betterdays .caption {
-        padding: 25px 20px;
+    #betterdays .title {
+        padding: 0 10px;
+        text-align: center;
     }
 
-    #betterdays .caption h2 {
-        font-size: 2rem;
-        margin-bottom: 20px;
+    #betterdays .title h1 {
+        font-size: 3rem;
+        line-height: 3rem;
     }
 
-    #betterdays .caption h3 {
-        font-size: 0.9rem;
-        margin-bottom: 10px;
+    #betterdays .title .more {
+        align-self: center;
     }
 
-    #betterdays .caption::after,
-    #betterdays .caption h2 {
-        background-size: 160%;
+    #betterdays ul li {
+        overflow: unset;
+        flex-direction: row-reverse;
+        align-items: center;
+        padding: 30px;
     }
 
-    #betterdays .caption:hover::after,
-    #betterdays .caption:hover h2,
-    #betterdays .caption:hover h3 {
-        background-size: 180%;
+    #betterdays ul li div:first-child {
+        display: none;
+    }
+
+    #betterdays ul li div:first-child img {
+        display: none;
+    }
+
+    #betterdays ul li div:last-child {
+        width: 100%;
+        padding: 0;
+    }
+
+    #betterdays ul li p {
+        padding: 20px 0;
     }
 
 }
