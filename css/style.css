@@ -1,4 +1,11 @@
 @font-face {
+    font-family: 'S-CoreDream-3Light';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
     font-family: 'S-CoreDream-4Regular';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff') format('woff');
     font-weight: normal;
@@ -37,7 +44,8 @@
     --h1: 'S-CoreDream-7ExtraBold';
     --h2: 'S-CoreDream-6Bold';
     --h3: 'S-CoreDream-5Medium';
-    --mid: 'S-CoreDream-4Regular';
+    --reg: 'S-CoreDream-4Regular';
+    --light: 'S-CoreDream-3Light';
 }
 
 /* reset */
@@ -47,7 +55,7 @@
 }
 
 body {
-    font-family: var(--mid);
+    font-family: var(--reg);
     font-weight: 300;
     line-height: inherit;
     color: var(--black);
@@ -91,7 +99,6 @@ img {
     overflow: hidden;
     clip-path: polygon(0 0, 0 0, 0 0);
 }
-
 
 .more {
     font-family: var(--h1);
@@ -612,7 +619,7 @@ main {
 }
 
 #betterdays ul li p {
-    font-family: var(--mid);
+    font-family: var(--reg);
     color: var(--D-gray);
     font-size: 0.9rem;
 }
@@ -626,6 +633,7 @@ main {
     align-self: flex-end;
     transition: all 0.3s ease;
     letter-spacing: normal;
+    font-family: var(--reg);
 }
 
 #betterdays ul li .more:hover {
@@ -677,22 +685,45 @@ footer {
 }
 
 footer .inner {
-    padding: 40px 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 80px 0;
 }
 
 footer div, footer a {
     color: var(--white);
 }
 
-.sns {
+footer div {
+    font-family: var(--light);
+    font-size: 0.9rem;
+    line-height: 1.5rem;
+}
+
+footer div h1 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.copyright {
+    width: 30%;
+}
+
+.company p {
+    white-space: pre-line;
+}
+
+.sns div {
     display: flex;
 }
 
-.sns a {
+.sns div a {
     width: 35px;
     height: 35px;
 }
-.sns a + a {
+
+.sns a+a {
     margin-left: 5px;
 }
 
@@ -893,7 +924,7 @@ footer div, footer a {
     nav.active .sub-menu .nav-item:hover,
     nav.active .sub-menu .nav-item a {
         padding-left: 0;
-        font-family: var(--mid);
+        font-family: var(--reg);
     }
 
     nav.active .sub-menu .nav-item:hover a {
@@ -994,7 +1025,7 @@ footer div, footer a {
     }
 
     footer .inner {
-        padding: 30px 10px;
+        padding: 80px 15px;
     }
 
     #slider .content {
@@ -1029,6 +1060,22 @@ footer div, footer a {
 
     #cereals .caption {
         padding-left: 30px;
+    }
+
+    footer .inner {
+        flex-direction: column-reverse;
+    }
+
+    footer .inner div+div {
+        margin-bottom: 30px;
+    }
+
+    .company p {
+        white-space: initial;
+    }
+
+    .copyright {
+        width: auto;
     }
 
 }
