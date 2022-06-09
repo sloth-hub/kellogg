@@ -90,7 +90,30 @@ img {
     margin: -1px;
     overflow: hidden;
     clip-path: polygon(0 0, 0 0, 0 0);
+}
 
+
+.more {
+    font-family: var(--h1);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5rem;
+    border-radius: 5px;
+    align-self: flex-end;
+    transition: color 0.2s linear;
+}
+
+.more:hover {
+    color: var(--main-color);
+}
+
+.more .fa-angle-right {
+    margin-right: 4px;
+    transition: margin-right 0.2s ease-in-out;
+}
+
+.more:hover .fa-angle-right {
+    margin-right: 0;
 }
 
 /* 큰 데스크탑 */
@@ -521,20 +544,6 @@ main {
     margin-bottom: 30px;
 }
 
-#betterdays .title .more {
-    font-family: var(--h1);
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5rem;
-    border-radius: 5px;
-    align-self: flex-end;
-    transition: color 0.2s linear;
-}
-
-#betterdays .title .more:hover {
-    color: var(--main-color);
-}
-
 #betterdays ul {
     display: flex;
     flex-direction: row;
@@ -616,6 +625,7 @@ main {
     border-radius: 5px;
     align-self: flex-end;
     transition: all 0.3s ease;
+    letter-spacing: normal;
 }
 
 #betterdays ul li .more:hover {
@@ -659,14 +669,6 @@ main {
     font-family: var(--h2);
     align-self: flex-end;
     transition: color 0.2s linear;
-}
-
-#recipes .more .fa-angle-right {
-    margin-right: 4px;
-}
-
-#recipes .more:hover {
-    color: var(--main-color);
 }
 
 footer {
