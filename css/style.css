@@ -707,11 +707,15 @@ footer div h1 {
 }
 
 .copyright {
-    width: 30%;
+    width: 25%;
 }
 
 .company p {
     white-space: pre-line;
+}
+
+.company p span {
+    font-family: var(--h3);
 }
 
 .sns div {
