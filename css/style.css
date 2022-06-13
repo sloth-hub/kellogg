@@ -217,7 +217,7 @@ header.active .nav-item .sub-menu:hover {
     display: flex;
 }
 
-header.active .logo-area{
+header.active .logo-area {
     transform: translate(60px, 96px);
 }
 
@@ -278,7 +278,7 @@ main {
     color: var(--black);
     background-color: rgba(255, 255, 255, 0.3);
     border-radius: 50%;
-    box-shadow:2px 5px 10px rgba(var(--shadow), 0.2);
+    box-shadow: 2px 5px 10px rgba(var(--shadow), 0.2);
     transition: all 0.3s ease;
     transform: scale(1);
 }
@@ -1047,6 +1047,16 @@ footer div h1 {
         height: 0;
     }
 
+    header.active .sub-menu,
+    header.active .nav-item .sub-menu {
+        display: none;
+    }
+
+    header.active .nav-item:hover .sub-menu,
+    header.active .nav-item .sub-menu:hover {
+        display: flex;
+    }
+
     .text-wrap h1 {
         font-size: 3rem;
         line-height: 3.2rem;
@@ -1213,7 +1223,7 @@ footer div h1 {
         margin-bottom: 60px;
         transition: all 0.3 ease;
     }
-    
+
     #recipes .more {
         padding-left: 40px;
         align-self: start;
@@ -1323,5 +1333,5 @@ footer div h1 {
     #recipes h2 {
         font-size: 1rem;
     }
-    
+
 }
