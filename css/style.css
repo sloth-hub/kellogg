@@ -151,7 +151,7 @@ header .inner {
 .logo-area {
     opacity: 1;
     z-index: 1;
-    transition: all 0.2s linear;
+    transition: all 0.3s ease;
 }
 
 .logo-area img {
@@ -218,6 +218,10 @@ header.active .nav-item .sub-menu:hover {
     display: flex;
 }
 
+header.active .logo-area{
+    transform: translate(60px, 96px);
+}
+
 .sub-menu {
     visibility: hidden;
     position: absolute;
@@ -273,7 +277,7 @@ main {
     right: 15px;
     bottom: 15px;
     color: var(--black);
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.3);
     border-radius: 50%;
     box-shadow:2px 5px 10px rgba(var(--shadow), 0.2);
     transition: all 0.3s ease;

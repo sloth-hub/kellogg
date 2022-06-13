@@ -8,15 +8,15 @@ $(".main-menu>.nav-item.sub").hover(() => {
 });
 
 $(window).on("scroll", () => {
-    let scrollY = $(document).scrollTop();
-    if (scrollY > 2450) {
+    let footerY = $("footer").offset().top;
+    let topbtnY = $(".top").offset().top;
+
+    if (topbtnY >= (footerY - 100)) {
         $(".top").css({
-            "position": "absolute",
             "transform": "scale(0)"
         });
     } else {
         $(".top").css({
-            "position": "fixed",
             "transform": "scale(1)"
         });
     }
