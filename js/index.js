@@ -8,8 +8,8 @@ $(".main-menu>.nav-item.sub").hover(() => {
 });
 
 $(window).on("scroll", () => {
-    let footerY = $("footer").offset().top;
-    let topbtnY = $(".top").offset().top;
+    const footerY = $("footer").offset().top;
+    const topbtnY = $(".top").offset().top;
 
     if (topbtnY >= (footerY - 100)) {
         $(".top").css({
@@ -20,4 +20,11 @@ $(window).on("scroll", () => {
             "transform": "scale(1)"
         });
     }
+});
+
+$(document).ready(()=>{
+
+    const slide = document.querySelector(".myswiper").swiper;
+    
+    slide.autoplay.stop();
 });
