@@ -125,7 +125,6 @@ img {
 
 article {
     padding-top: 74px;
-    border: 1px solid black;
 }
 
 /* 큰 데스크탑 */
@@ -489,7 +488,7 @@ main {
 
 #cereals h1 {
     font-size: 2.5rem;
-    padding-bottom: 100px;
+    margin-bottom: 100px;
 }
 
 #cereals ul {
@@ -921,7 +920,7 @@ footer div h1 {
 
     .inner, #slider .content {
         width: 720px;
-        padding: 80px 0px;
+        padding: 80px 15px;
     }
 
     .main-menu {
@@ -1091,7 +1090,7 @@ footer div h1 {
     }
 
     #cereals h1 {
-        padding-bottom: 80px;
+        margin-bottom: 80px;
         font-size: 2rem;
     }
 
@@ -1158,7 +1157,7 @@ footer div h1 {
 
 /* 스마트폰 가로 */
 @media screen and (max-width:767.98px) {
-    .inner, #slider .content {
+    .inner {
         width: auto;
     }
 
@@ -1175,27 +1174,27 @@ footer div h1 {
         padding: 0 15px;
     }
 
-    div[data-swiper-slide-index="2"] .img-wrap {
-        margin-bottom: 44px;
-    }
-
     .text-wrap h1 {
         font-size: 6.8vw;
-        line-height: 6vh;
+        line-height: 7vh;
     }
 
     .img-wrap img {
-        width: 36vw;
+        width: 30vw;
         height: auto;
     }
 
+    .swiper-slide:nth-child(3) img {
+        width: 35vw;
+    }
+
     .img-wrap::after {
-       width: 250px;
-       height: 250px;
+        width: 280px;
+        height: 280px;
     }
 
     #cereals ul {
-        padding: 0 45px;
+        padding: 0 10px;
         justify-content: space-evenly;
     }
 
@@ -1282,6 +1281,21 @@ footer div h1 {
         height: -webkit-fill-available;
     }
 
+    .swiper-slide:nth-child(3) img {
+        width: 50vw;
+        max-width: initial;
+    }
+
+    .img-wrap img {
+        width: 42vw;
+        max-width: 210px;
+    }
+
+    .swiper-slide-active .img-wrap::after {
+        width: 55vw;
+        height: 55vw;
+    }
+
     .text-wrap h1 {
         font-size: 2.5rem;
         line-height: 2.7rem;
@@ -1293,6 +1307,9 @@ footer div h1 {
 
     #cereals h1 {
         font-size: 1.5rem;
+        word-break: keep-all;
+        text-align: center;
+        margin-bottom: 40px;
     }
 
     #cereals ul {
@@ -1315,6 +1332,7 @@ footer div h1 {
     #betterdays .title {
         padding: 0 10px;
         text-align: center;
+        margin-bottom: 40px;
     }
 
     #betterdays .title h1 {
@@ -1348,6 +1366,10 @@ footer div h1 {
 
     #betterdays ul li p {
         padding: 20px 0;
+    }
+
+    #recipes .inner {
+        padding: 20px 15px 80px;
     }
 
     #recipes .title {

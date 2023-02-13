@@ -25,6 +25,5 @@ $(window).on("scroll", () => {
 $(document).ready(()=>{
 
     const slide = document.querySelector(".myswiper").swiper;
-    
     slide.autoplay.stop();
 });
