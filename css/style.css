@@ -288,6 +288,30 @@ main {
     box-shadow: none;
 }
 
+/* ----------- 스크롤 애니메이션 ----------- */
+
+.animate {
+    transition: transform .5s ease;
+}
+
+.animate.left {
+    transform: translate(-10%, -10%);
+    opacity: 0;
+}
+
+.animate.left.active {
+    transform: translate(0);
+    opacity: 1;
+}
+
+.animate.scale {
+    transform: scale(0);
+}
+
+.animate.scale.active {
+    transform: scale(1);
+}
+
 /* ----------- 슬라이더 ----------- */
 
 #slider {

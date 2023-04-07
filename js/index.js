@@ -26,6 +26,27 @@ function tabHoverEvent({ target }) {
 
 function scrollEvent() {
     topbtnEvent();
+    scrollAnimation();
+}
+
+function scrollAnimation() {
+    const options = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.7,
+    }
+    const callback = entries => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("active");
+            } else {
+                entry.target.classList.remove("active");
+            }
+        });
+    }
+    let observer = new IntersectionObserver(callback, options);
+    const target = document.querySelectorAll(".animate");
+    target.forEach(e => observer.observe(e));
 }
 
 function topbtnEvent() {
