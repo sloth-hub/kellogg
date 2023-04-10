@@ -2,17 +2,15 @@ const body = document.querySelector("body");
 
 document.addEventListener("DOMContentLoaded", () => {
     this.addEventListener("scroll", scrollEvent);
-    body.addEventListener("click", tabEvent);
-    body.addEventListener("mouseover", tabHoverEvent);
+    this.addEventListener("click", tabEvent);
+    this.addEventListener("mouseover", tabHoverEvent);
 });
 
 function tabEvent({ target }) {
     const nav = body.querySelector("nav");
-    if (target.className === "hamburger") {
-        target.addEventListener("click", () => {
-            nav.classList.toggle("active");
-            body.classList.toggle("active");
-        });
+    if (target.closest(".hamburger")) {
+        nav.classList.toggle("active");
+        body.classList.toggle("active");
     }
 }
 
@@ -20,7 +18,7 @@ function tabHoverEvent({ target }) {
     if (target.closest(".nav-item.sub")) {
         body.querySelector("header").classList.add("active");
     } else {
-        target.className === "active" ? null : body.querySelector("header").classList.remove("active");
+        target.closest("header") ? null : body.querySelector("header").classList.remove("active");
     }
 }
 
@@ -33,12 +31,16 @@ function scrollAnimation() {
     const options = {
         root: null,
         rootMargin: "0px",
-        threshold: 0.7,
+        threshold: 1,
     }
     const callback = entries => {
+        let delay = 0;
         entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("active");
+            if (entry.intersectionRatio > 0) {
+                setTimeout(() => {
+                    entry.target.classList.add("active");
+                }, delay);
+                delay += 200;
             } else {
                 entry.target.classList.remove("active");
             }
