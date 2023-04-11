@@ -1440,8 +1440,17 @@ footer div h1 {
         width: 200px;
     }
 
+    #recipes ul {
+        width: auto;
+        margin-bottom: 30px;
+    }
+
     #recipes h2 {
         font-size: 1rem;
+    }
+
+    #recipes .more {
+        padding-left: 0;
     }
 
 }
