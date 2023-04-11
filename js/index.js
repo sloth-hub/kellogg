@@ -1,7 +1,8 @@
 const body = document.querySelector("body");
 
 document.addEventListener("DOMContentLoaded", () => {
-    this.addEventListener("scroll", scrollEvent);
+    scrollAnimation();
+    this.addEventListener("scroll", topbtnEvent);
     this.addEventListener("click", tabEvent);
     this.addEventListener("mouseover", tabHoverEvent);
 });
@@ -22,31 +23,24 @@ function tabHoverEvent({ target }) {
     }
 }
 
-function scrollEvent() {
-    topbtnEvent();
-    scrollAnimation();
-}
-
 function scrollAnimation() {
-    const options = {
-        root: null,
-        rootMargin: "0px",
-        threshold: 1,
-    }
-    const callback = entries => {
+
+    const observer = new IntersectionObserver(entries => {
         let delay = 0;
         entries.forEach((entry) => {
-            if (entry.intersectionRatio > 0) {
-                setTimeout(() => {
-                    entry.target.classList.add("active");
-                }, delay);
-                delay += 200;
+            const next = entry.target;
+            if (entry.isIntersecting) {
+                if (next) {
+                    setTimeout(() => {
+                        next.classList.add("active");
+                    }, delay);
+                    delay += 200;
+                }
             } else {
-                entry.target.classList.remove("active");
+                next.classList.remove("active");
             }
         });
-    }
-    let observer = new IntersectionObserver(callback, options);
+    });
     const target = document.querySelectorAll(".animate");
     target.forEach(e => observer.observe(e));
 }
@@ -54,7 +48,7 @@ function scrollAnimation() {
 function topbtnEvent() {
     const topbtn = body.querySelector(".top");
     const footer = body.querySelector("footer");
-    const callback = entries => {
+    const observer = new IntersectionObserver(entries => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
                 topbtn.classList.add("active");
@@ -62,7 +56,6 @@ function topbtnEvent() {
                 topbtn.classList.remove("active");
             }
         });
-    }
-    let observer = new IntersectionObserver(callback);
+    });
     observer.observe(footer);
 }
