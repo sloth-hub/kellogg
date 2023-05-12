@@ -125,7 +125,6 @@ img {
 
 article {
     padding-top: 74px;
-    height: 100vh;
 }
 
 /* 큰 데스크탑 */
@@ -142,7 +141,7 @@ header {
 .inner {
     width: 1140px;
     margin: 0 auto;
-    padding: 100px 0;
+    padding: 74px 0;
     display: flex;
     align-items: center;
 }
@@ -324,7 +323,9 @@ main {
 /* ----------- 슬라이더 ----------- */
 
 #slider {
-    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 148px;
 }
 
 #slider .content {
@@ -334,15 +335,11 @@ main {
     justify-content: space-between;
     cursor: default;
     width: 1140px;
-    margin: 0 auto;
-}
-
-.swiper {
-    height: 100%;
 }
 
 .swiper-backface-hidden .swiper-slide {
     display: flex;
+    justify-content: center;
 }
 
 .swiper-pagination-bullet-active {
@@ -451,16 +448,19 @@ main {
 }
 
 .img-wrap img {
-    position: absolute;
-    width: auto;
-    min-height: 400px;
-    max-height: 500px;
+    position: relative;
+    width: 30vw;
+    max-width: 380px;
     filter: drop-shadow(20px 20px 15px rgba(var(--shadow), 0.3));
 }
 
 .swiper-slide-active .img-wrap img {
     animation: slide-img 0.5s ease-in-out backwards;
     animation-delay: 0.8s;
+}
+
+.swiper-pagination {
+    position: relative;
 }
 
 .img-wrap img, .img-wrap::after {
@@ -615,6 +615,7 @@ main {
     position: relative;
     display: flex;
     align-items: center;
+    height: 100vh;
     background-image: url(../images/betterdays_2.jpg);
     background-position: center 10%;
 }
@@ -1210,6 +1211,7 @@ footer div h1 {
     article {
         height: 100%;
     }
+
     .inner {
         width: auto;
         padding-left: 20px;

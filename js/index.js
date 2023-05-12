@@ -5,6 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
     this.addEventListener("scroll", topbtnEvent);
     this.addEventListener("click", tabEvent);
     this.addEventListener("mouseover", tabHoverEvent);
+    // const slide = document.querySelector(".myswiper").swiper;
+    // slide.autoplay.stop();
 });
 
 function tabEvent({ target }) {
