@@ -154,7 +154,7 @@ header .inner {
 .logo-area {
     opacity: 1;
     z-index: 1;
-    transition: all 0.15s ease;
+    transition: all 0.1s ease;
 }
 
 .main-menu {
@@ -325,7 +325,7 @@ main {
 #slider {
     display: flex;
     align-items: center;
-    padding-top: 148px;
+    padding-top: 94px;
 }
 
 #slider .content {
@@ -335,6 +335,7 @@ main {
     justify-content: space-between;
     cursor: default;
     width: 1140px;
+    height: 600px;
 }
 
 .swiper-backface-hidden .swiper-slide {
@@ -362,7 +363,7 @@ main {
 .text-wrap {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 55%;
     z-index: 1;
 }
 
@@ -377,7 +378,7 @@ main {
     font-weight: 500;
     white-space: pre-line;
     padding: 25px 0;
-    padding-right: 50px;
+    padding-right: 135px;
 }
 
 .swiper-slide-active .text-wrap h1,
@@ -429,14 +430,14 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50%;
+    width: 45%;
 }
 
 .img-wrap::after {
     content: "";
     position: absolute;
-    width: 500px;
-    height: 500px;
+    width: 450px;
+    height: 450px;
     background-color: var(--main-color);
     border-radius: 50%;
     z-index: -1;
@@ -449,7 +450,8 @@ main {
 
 .img-wrap img {
     position: relative;
-    width: 30vw;
+    width: auto;
+    max-height: 440px;
     max-width: 380px;
     filter: drop-shadow(20px 20px 15px rgba(var(--shadow), 0.3));
 }
@@ -461,6 +463,7 @@ main {
 
 .swiper-pagination {
     position: relative;
+    bottom: 0;
 }
 
 .img-wrap img, .img-wrap::after {
@@ -526,8 +529,27 @@ main {
 }
 
 #cereals h1 {
+    position: relative;
     font-size: 2.5rem;
-    margin-bottom: 100px;
+    margin-bottom: 70px;
+}
+
+#cereals h1:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 20px;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    /* width: 80px;
+    height: 80px;
+    z-index: -1;
+    left: -30px;
+    bottom: -10px;
+    border-radius: 50%;
+    border-bottom-right-radius: 0; */
+    background-color: rgb(186, 12, 47, 0.1);
 }
 
 #cereals ul {
@@ -896,6 +918,18 @@ footer div h1 {
         height: 400px;
     }
 
+    .text-wrap h2 {
+        padding-right: 65px
+    }
+
+    .swiper-slide[data-swiper-slide-index="2"] h2 {
+        padding-right: 80px;
+    }
+
+    #cereals {
+        height: 100vh;
+    }
+
     #cereals ul li {
         width: 250px;
         height: 250px;
@@ -962,7 +996,10 @@ footer div h1 {
 
     .inner, #slider .content {
         width: 720px;
-        padding: 74px 0;
+    }
+
+    #slider .content {
+        height: 450px;
     }
 
     .main-menu {
@@ -971,6 +1008,14 @@ footer div h1 {
 
     .hamburger {
         cursor: pointer;
+    }
+
+    header.active::after {
+        height: 74px;
+    }
+
+    header.active .logo-area {
+        transform: none;
     }
 
     nav.active .hamburger {
@@ -1135,6 +1180,10 @@ footer div h1 {
         height: 330px;
     }
 
+    #cereals {
+        height: 100%;
+    }
+
     #cereals h1 {
         margin-bottom: 80px;
         font-size: 2rem;
@@ -1229,11 +1278,17 @@ footer div h1 {
 
     #slider .content {
         padding: 0 15px;
+        height: 100%;
     }
 
     .text-wrap h1 {
         font-size: 6.8vw;
         line-height: 50px;
+    }
+
+    .text-wrap h2 {
+        padding-top: 20px;
+        padding-right: 10px;
     }
 
     .img-wrap img {
@@ -1246,58 +1301,94 @@ footer div h1 {
     }
 
     .img-wrap::after {
-        width: 280px;
-        height: 280px;
+        width: 260px;
+        height: 260px;
+    }
+
+    .new-prod {
+        padding-left: 0;
     }
 
     #cereals ul {
-        padding: 0 10px;
-        justify-content: space-evenly;
+        justify-content: center;
     }
 
     #cereals ul li {
         margin-left: 0;
+        width: 28vw;
+        height: 28vw;
     }
 
-    #cereals ul li:nth-child(even) {
-        margin-bottom: 40px;
+    #cereals ul li:nth-child(2) {
+        margin: 0 20px;
+    }
+
+    #cereals ul li:last-child {
+        margin: 0 auto 0 20px;
+    }
+
+    #cereals ul li:nth-last-child(2) {
+        margin: 0 20px 0 auto;
+    }
+
+    #cereals ul li img {
+        max-width: 70vw;
     }
 
     #cereals .caption {
         padding-left: 30px;
+        transform: translateY(6.8vw);
+    }
+
+    #cereals .caption h2 {
+        font-size: 2.2vw;
+    }
+
+    #betterdays .title {
+        margin-bottom: 50px;
+    }
+
+    #betterdays .title p {
+        font-size: 3vw;
     }
 
     #recipes .inner {
+        flex-flow: wrap;
         justify-content: center;
     }
 
+    #recipes .inner>div {
+        width: 100%;
+    }
+
     #recipes ul {
-        flex-direction: column;
-        align-items: center;
-        width: 80%;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    #recipes ul li {
+        width: 28vw;
     }
 
     #recipes ul li+li {
         margin-left: 0;
-        margin-top: 30px;
     }
 
     #recipes ul li>a>div {
-        padding: 25px 30px;
+        padding: 20px 15px;
     }
 
     #recipes h2 {
-        font-size: 1.2rem;
+        font-size: 2vw;
+    }
+
+    #recipes ul li:first-child h2 {
+        font-size: 1.9vw;
     }
 
     #recipes .title {
         margin-bottom: 60px;
         transition: all 0.3 ease;
-    }
-
-    #recipes .more {
-        padding-left: 40px;
-        align-self: start;
     }
 
     footer .inner {
@@ -1325,17 +1416,25 @@ footer div h1 {
         width: 80%;
     }
 
+    #slider {
+        padding-top: 74px;
+    }
+
     #slider .content {
         flex-direction: column-reverse;
+        justify-content: center;
         padding-bottom: 40px;
+        height: 660px;
     }
 
     .text-wrap {
+        padding-top: 20px;
         width: 80%;
     }
 
     .img-wrap {
-        height: -webkit-fill-available;
+        padding-top: 20px;
+        height: 65vw;
     }
 
     .swiper-slide:nth-child(3) img {
@@ -1345,7 +1444,6 @@ footer div h1 {
 
     .img-wrap img {
         width: 42vw;
-        max-width: 210px;
     }
 
     .swiper-slide-active .img-wrap::after {
@@ -1354,12 +1452,13 @@ footer div h1 {
     }
 
     .text-wrap h1 {
-        font-size: 7vw;
+        font-size: 6.5vw;
         line-height: 8vw;
+        white-space: initial;
     }
 
     .text-wrap h2 {
-        padding: 10px 0;
+        padding: 10px 0 15px;
     }
 
     .new-prod {
@@ -1371,28 +1470,43 @@ footer div h1 {
         padding: 10px 20px;
     }
 
+    #cereals {
+        padding-top: 32.5px;
+    }
+
     #cereals h1 {
-        font-size: 1.5rem;
+        font-size: 5vw;
         word-break: keep-all;
         text-align: center;
         margin-bottom: 40px;
     }
 
-    #cereals ul {
-        padding: 0;
+    #cereals ul li {
+        width: 40vw;
+        height: 40vw;
     }
 
-    #cereals ul li {
-        width: 170px;
-        height: 170px;
+    #cereals ul li:nth-child(n) {
+        margin: 0;
+    }
+
+    #cereals ul li:nth-child(odd):not(li:last-child) {
+        margin-right: 5vw;
+        margin-bottom: 5vw;
     }
 
     #cereals ul li img {
-        max-width: 400px;
+        max-width: 95vw;
     }
 
     #cereals .caption {
-        transform: translateY(42px);
+        transform: translateY(10.7vw);
+        padding: 2.8vw 0 15px 25px;
+        justify-content: initial;
+    }
+
+    #cereals .caption h2 {
+        font-size: 3vw;
     }
 
     #betterdays .title {
@@ -1402,8 +1516,13 @@ footer div h1 {
     }
 
     #betterdays .title h1 {
-        font-size: 3rem;
-        line-height: 3rem;
+        font-size: 2.5rem;
+        line-height: 2.5rem;
+    }
+
+    #betterdays .title p {
+        font-size: 3.5vw;
+        padding: 0 11vw;
     }
 
     #betterdays .title .more {
@@ -1443,16 +1562,35 @@ footer div h1 {
     }
 
     #recipes ul {
-        width: auto;
         margin-bottom: 30px;
+        flex-flow: wrap;
+        justify-content: center;
     }
 
-    #recipes h2 {
-        font-size: 1rem;
+    #recipes ul li {
+        width: 40vw;
+    }
+
+    #recipes ul li+li {
+        margin: 0;
+    }
+
+    #recipes ul li:first-child {
+        margin-right: 5vw;
+    }
+
+    #recipes ul li:last-child {
+        margin: 0 auto;
+        margin-top: 5vw;
+    }
+
+    #recipes h2, #recipes ul li:first-child h2 {
+        font-size: 2.7vw;
     }
 
     #recipes .more {
-        padding-left: 0;
+        align-self: center;
+        margin-top: 20px;
     }
 
 }
