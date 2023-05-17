@@ -244,6 +244,7 @@ header::after {
     border-bottom: 1px solid var(--L-gray);
     box-shadow: 0px 1px 10px rgba(var(--shadow), 0.1);
     transition: height 0.3s ease;
+    box-sizing: border-box;
 }
 
 header.active::after {
@@ -1184,7 +1185,9 @@ footer div h1 {
     }
 
     #cereals {
-        height: 100%;
+        height: max(100vh, 756px);
+        display: flex;
+        align-items: center;
     }
 
     #cereals h1 {
@@ -1414,8 +1417,15 @@ footer div h1 {
 /* 스마트폰 세로 */
 @media screen and (max-width:575.98px) {
 
+    .inner {
+        padding: 68px 20px;
+    }
 
-    header {
+    article {
+        padding-top: 68px;
+    }
+
+    header, header.active::after {
         height: 68px;
     }
 
@@ -1441,7 +1451,7 @@ footer div h1 {
     }
 
     #slider {
-        padding-top: 74px;
+        padding-top: 68px;
     }
 
     #slider .content {
@@ -1547,6 +1557,10 @@ footer div h1 {
         font-size: 3vw;
     }
 
+    #cereals h1:after {
+        height: 10px;
+    }
+
     #betterdays .title {
         padding: 0 10px;
         text-align: center;
@@ -1559,8 +1573,7 @@ footer div h1 {
     }
 
     #betterdays .title p {
-        font-size: 3.5vw;
-        padding: 0 11vw;
+        font-size: max(3.5vw, 15px);
     }
 
     #betterdays .title .more {
