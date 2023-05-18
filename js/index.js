@@ -5,8 +5,9 @@ document.addEventListener("DOMContentLoaded", () => {
     this.addEventListener("scroll", topbtnEvent);
     this.addEventListener("click", tabEvent);
     this.addEventListener("mouseover", tabHoverEvent);
-    const slide = document.querySelector(".myswiper").swiper;
-    slide.autoplay.stop();
+    const slide = new Swiper(".myswiper", {
+        centeredSlides: true,
+    });
 });
 
 function tabEvent({ target }) {
@@ -62,7 +63,7 @@ function topbtnEvent() {
     observer.observe(footer);
     if (scrollY >= 10) {
         topbtn.style.transform = "translateY(0)";
-    }else {
+    } else {
         topbtn.style.transform = "translateY(65px)";
     }
 }
