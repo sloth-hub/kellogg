@@ -73,13 +73,12 @@ a {
 
 h1 {
     font-family: var(--h1);
-    font-size: 4.2rem;
     transition: font-size 0.3 ease;
 }
 
 h2 {
     font-family: var(--h2);
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     transition: font-size 0.3 ease;
 }
 
@@ -339,7 +338,7 @@ main {
     justify-content: space-between;
     cursor: default;
     width: 1140px;
-    height: 600px;
+    height: 530px;
 }
 
 .swiper-backface-hidden .swiper-slide {
@@ -372,7 +371,8 @@ main {
 }
 
 .text-wrap h1 {
-    line-height: 4.8rem;
+    font-size: 4.2rem;
+    line-height: 4.4rem;
     white-space: pre-line;
     padding-right: 40px;
 }
@@ -535,7 +535,7 @@ main {
 #cereals h1 {
     position: relative;
     font-size: 2.5rem;
-    margin-bottom: 70px;
+    margin-bottom: 74px;
 }
 
 #cereals h1:after {
@@ -607,10 +607,6 @@ main {
     transform: translateY(67px);
 }
 
-#cereals .caption h2 {
-    font-size: 1.3rem;
-}
-
 #cereals .caption span {
     color: var(--main-color);
 }
@@ -668,6 +664,7 @@ main {
 }
 
 #betterdays .title h1 {
+    font-size: 67px;
     text-align: center;
     text-transform: uppercase;
     color: var(--main-color);
@@ -736,6 +733,7 @@ main {
 }
 
 #betterdays ul li h2 {
+    font-size: 1.3rem;
     color: var(--main-color);
 }
 
@@ -775,10 +773,6 @@ main {
 
 #recipes .inner>div, #recipes ul, #recipes ul li>a>div {
     display: flex;
-}
-
-#recipes .inner {
-    padding-bottom: 120px;
 }
 
 #recipes .inner>div {
@@ -826,7 +820,6 @@ main {
 }
 
 #recipes h2 {
-    font-size: 1.1rem;
     padding-right: 10px;
 }
 
@@ -907,10 +900,6 @@ footer div h1 {
         width: 940px;
     }
 
-    h1 {
-        font-size: 3.8rem;
-    }
-
     .img-wrap img {
         max-width: 360px;
         min-height: auto;
@@ -922,6 +911,11 @@ footer div h1 {
         height: 400px;
     }
 
+    .text-wrap h1 {
+        font-size: 3.7rem;
+        line-height: 3.9rem;
+    }
+
     .text-wrap h2 {
         padding-right: 65px
     }
@@ -931,7 +925,7 @@ footer div h1 {
     }
 
     #cereals {
-        height: max(100vh, 888px);
+        height: 100%;
     }
 
     #cereals ul li {
@@ -945,10 +939,6 @@ footer div h1 {
 
     #cereals .caption {
         transform: translateY(58px);
-    }
-
-    #cereals .caption h2 {
-        font-size: 1.15rem;
     }
 
     #cereals ul li .more-btn {
@@ -1184,25 +1174,13 @@ footer div h1 {
         height: 330px;
     }
 
-    #cereals {
-        height: max(100vh, 756px);
-        display: flex;
-        align-items: center;
-    }
-
     #cereals h1 {
-        margin-bottom: 80px;
-        font-size: 2rem;
+        font-size: 2.2rem;
     }
 
     #cereals ul li {
         width: 200px;
         height: 200px;
-        margin-left: 30px;
-    }
-
-    #cereals ul li:nth-child(-n+3) {
-        margin-bottom: 30px;
     }
 
     #cereals ul li img {
@@ -1328,16 +1306,24 @@ footer div h1 {
         margin: 0 20px;
     }
 
+    #cereals ul li:nth-child(-n+3) {
+        margin-bottom: 20px;
+    }
+
     #cereals ul li:last-child {
-        margin: 0 auto 0 20px;
+        margin: 0 auto 0 10px;
     }
 
     #cereals ul li:nth-last-child(2) {
-        margin: 0 20px 0 auto;
+        margin: 0 10px 0 auto;
     }
 
     #cereals ul li img {
         max-width: 70vw;
+    }
+
+    #cereals h1 {
+        font-size: 2rem;
     }
 
     #cereals .caption {
@@ -1425,7 +1411,7 @@ footer div h1 {
         padding-top: 68px;
     }
 
-    header, header.active::after {
+    header, header::after, header.active::after {
         height: 68px;
     }
 
@@ -1458,6 +1444,7 @@ footer div h1 {
         flex-direction: column-reverse;
         justify-content: center;
         height: 100%;
+        padding-top: 34px;
     }
 
     .swiper-pagination {
@@ -1518,7 +1505,8 @@ footer div h1 {
     }
 
     #cereals {
-        padding-top: 32.5px;
+        height: 100%;
+        padding-top: 34px;
     }
 
     #cereals h1 {
