@@ -63,6 +63,4 @@ https://sloth-hub.github.io/kellogg
 
 ## 📚 LIBRARIES
 
-- AOS.js
 - Swiper.js
-
