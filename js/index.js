@@ -5,9 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
     this.addEventListener("scroll", topbtnEvent);
     this.addEventListener("click", tabEvent);
     this.addEventListener("mouseover", tabHoverEvent);
-    const slide = new Swiper(".myswiper", {
-        centeredSlides: true,
-    });
 });
 
 function tabEvent({ target }) {

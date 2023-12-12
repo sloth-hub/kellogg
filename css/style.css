@@ -777,6 +777,7 @@ main {
 #recipes {
     height: 100vh;
 }
+
 #recipes .inner>div, #recipes ul, #recipes ul li>a>div {
     display: flex;
 }
@@ -1250,7 +1251,7 @@ footer div h1 {
 }
 
 /* 스마트폰 가로 */
-@media screen and (max-width:767.98px) {
+@media screen and (max-width:768px) {
 
     article {
         height: 100%;
@@ -1272,7 +1273,15 @@ footer div h1 {
     }
 
     #slider .content {
+        flex-direction: column-reverse;
+        justify-content: center;
+        height: 100%;
         padding: 0 15px;
+        padding-top: 34px;
+    }
+
+    .text-wrap {
+        width: 60%;
     }
 
     .text-wrap h1 {
@@ -1280,9 +1289,17 @@ footer div h1 {
         line-height: 50px;
     }
 
-    .text-wrap h2 {
-        padding-top: 20px;
-        padding-right: 10px;
+    .text-wrap h2:nth-child(n) {
+        padding-right: 0;
+    }
+
+    .img-wrap {
+        height: 50vw;
+    }
+
+    .img-wrap::after {
+        width: 260px;
+        height: 260px;
     }
 
     .img-wrap img {
@@ -1292,11 +1309,6 @@ footer div h1 {
 
     .swiper-slide:nth-child(3) img {
         width: 35vw;
-    }
-
-    .img-wrap::after {
-        width: 260px;
-        height: 260px;
     }
 
     .new-prod {
@@ -1448,13 +1460,6 @@ footer div h1 {
 
     #slider {
         padding-top: 68px;
-    }
-
-    #slider .content {
-        flex-direction: column-reverse;
-        justify-content: center;
-        height: 100%;
-        padding-top: 34px;
     }
 
     .swiper-pagination {
