@@ -13,5 +13,3 @@ const swiper = new Swiper('.swiper', {
         pauseOnMouseEnter: true
     }
 });
-
-swiper.autoplay.stop();

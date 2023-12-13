@@ -1201,6 +1201,7 @@ footer div h1 {
 
     #cereals .caption {
         transform: translateY(46px);
+        padding-left: 30px;
     }
 
     #cereals .caption h2 {
@@ -1219,6 +1220,7 @@ footer div h1 {
 
     #betterdays {
         height: 100%;
+        min-height: 100vh;
     }
 
     #betterdays ul {
@@ -1281,7 +1283,7 @@ footer div h1 {
     }
 
     .text-wrap {
-        width: 60%;
+        width: 70%;
     }
 
     .text-wrap h1 {
@@ -1298,8 +1300,8 @@ footer div h1 {
     }
 
     .img-wrap::after {
-        width: 260px;
-        height: 260px;
+        width: 40vw;
+        height: 40vw;
     }
 
     .img-wrap img {
@@ -1351,6 +1353,10 @@ footer div h1 {
     #cereals .caption {
         padding-left: 30px;
         transform: translateY(6.8vw);
+    }
+
+    #cereals ul li .more-btn {
+        margin-top: 2vw;
     }
 
     #cereals .caption h2 {
@@ -1454,6 +1460,16 @@ footer div h1 {
         padding-bottom: 0;
     }
 
+    body.active .logo-area {
+        opacity: 1;
+        z-index: 4;
+        filter: brightness(100);
+    }
+
+    nav.active .main-menu {
+        width: 100%;
+    }
+
     .logo-area img {
         width: 80%;
     }
@@ -1554,9 +1570,9 @@ footer div h1 {
     }
 
     #cereals ul .caption {
-        transform: translateY(10.9vw);
-        padding: 2.8vw 0 15px 25px;
-        justify-content: initial;
+        transform: translateY(10vw);
+        padding-left: 25px;
+        justify-content: center;
         border-top-left-radius: 25px;
     }
 
@@ -1568,8 +1584,13 @@ footer div h1 {
         height: 10px;
     }
 
+    #cereals ul li .more-btn {
+        font-size: 3.2vw;
+        margin-top: 3.2vw;
+    }
+
     #cereals ul li:hover .more-btn {
-        margin-top: 12px;
+        margin-top: 2vw;
     }
 
     #betterdays .title {
@@ -1617,6 +1638,7 @@ footer div h1 {
 
     #recipes {
         position: relative;
+        height: 100%;
     }
 
     #recipes .inner {
