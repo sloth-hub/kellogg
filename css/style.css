@@ -1448,7 +1448,7 @@ footer div h1 {
     }
 
     .inner {
-        padding-bottom: 20px;
+        padding-bottom: 30px;
     }
 
     header, header::after, header.active::after {
@@ -1488,6 +1488,7 @@ footer div h1 {
 
     #slider {
         padding-top: 68px;
+        min-height: initial;
     }
 
     .swiper-pagination {
@@ -1549,6 +1550,11 @@ footer div h1 {
 
     #cereals {
         height: 100%;
+    }
+
+    #cereals .inner {
+        padding-top: 80px;
+        padding-bottom: 60px;
     }
 
     #cereals h1 {
@@ -1614,6 +1620,7 @@ footer div h1 {
     #betterdays .title h1 {
         font-size: 2.5rem;
         line-height: 2.5rem;
+        margin-bottom: 20px;
     }
 
     #betterdays .title p {
@@ -1628,7 +1635,11 @@ footer div h1 {
         overflow: unset;
         flex-direction: row-reverse;
         align-items: center;
-        padding: 30px;
+        padding: 25px;
+    }
+
+    #betterdays ul li+li {
+        margin-top: 30px;
     }
 
     #betterdays ul li div:first-child {
@@ -1707,7 +1718,6 @@ footer div h1 {
         width: 100%;
         left: 0;
         bottom: 0;
-        margin-top: 20px;
         padding: 30px;
         display: flex;
         align-items: center;
