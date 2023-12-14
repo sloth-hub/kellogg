@@ -8,14 +8,14 @@ InterSection Observer API를 사용해 스크롤 애니메이션을 적용한 �
 https://sloth-hub.github.io/kellogg
 
 ## 🖥 PREVIEW - **WEB**
-![kellogg_pc_1](https://github.com/sloth-hub/kellogg/assets/53851248/ab6b8399-b92b-4951-b096-892d3e063480)
+![kellogg_pc_1](https://github.com/sloth-hub/kellogg/assets/53851248/9012819c-3171-41b7-bb32-5a15fae9aed8)
 
 <details>
 <summary>더보기</summary>
 
-![kellogg_pc_2](https://github.com/sloth-hub/kellogg/assets/53851248/c95bb264-5750-4172-9759-27fed26c46bf)
-![kellogg_pc_3](https://github.com/sloth-hub/kellogg/assets/53851248/c9537c20-733b-4b19-a01e-2db8a8be4445)
-![kellogg_pc_4](https://github.com/sloth-hub/kellogg/assets/53851248/0978d5fd-404f-40d3-940d-7328e7b05df2)
+![kellogg_pc_2](https://github.com/sloth-hub/kellogg/assets/53851248/90ac5cec-f2da-4a41-b6a5-20c7185a5e77)
+![kellogg_pc_3](https://github.com/sloth-hub/kellogg/assets/53851248/ae3307e2-359f-4879-a245-24a94bd7d855)
+![kellogg_pc_4](https://github.com/sloth-hub/kellogg/assets/53851248/fd253ef9-1e1f-4d38-b0cc-cca1848e0f9d)
 </details>
 
 <br>
