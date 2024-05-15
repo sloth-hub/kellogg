@@ -10,6 +10,6 @@ const swiper = new Swiper('.swiper', {
     },
     autoplay: {
         delay: 2500,
-        pauseOnMouseEnter: true
+        pauseOnMouseEnter: false
     }
 });
