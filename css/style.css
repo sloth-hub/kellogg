@@ -124,7 +124,7 @@ img {
     transform: translateX(4px);
 }
 
-button {
+button, .cart {
     background-color: var(--main-color);
     color: var(--white);
     width: max-content;
@@ -327,7 +327,6 @@ header.active::after {
 }
 
 .cart:hover {
-    width: max-content;
     width: 100px;
     border-radius: 30px;
     margin-left: 0;
@@ -342,30 +341,58 @@ header.active::after {
     display: none;
 }
 
+.floating-box {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: sticky;
+    width: max-content;
+    right: 15px;
+    bottom: 0;
+    margin-left: auto;
+    padding-bottom: 15px;
+    transform: translateY(123px);
+    transition: transform 0.3s ease;
+}
+
+.floating-box .cart {
+    display: none;
+    width: 50px;
+    height: 50px;
+    margin-left: 0;
+    box-shadow: 2px 5px 10px rgba(var(--shadow), 0.2);
+    transition: color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease, transform 0.5s ease;
+}
+
+.floating-box .cart:hover svg {
+    opacity: 0.8;
+    font-size: 16px;
+}
+
+.floating-box .cart:hover svg path {
+    display: block;
+}
+
+.floating-box .cart:hover p {
+    opacity: 0;
+    font-size: 0;
+}
+
 .top {
     display: flex;
-    position: fixed;
     align-items: center;
     justify-content: center;
     width: 50px;
     height: 50px;
-    right: 15px;
-    bottom: 15px;
     color: var(--black);
-    background-color: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(10px);
+    background-color: var(--white);
     border-radius: 50%;
     box-shadow: 2px 5px 10px rgba(var(--shadow), 0.2);
     transition: color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease, transform 0.5s ease;
-    transform: translateY(65px);
-    z-index: 2;
 }
 
-.top.active {
-    color: var(--white);
-    background-color: transparent;
-    box-shadow: none;
-    backdrop-filter: none;
+.top:hover {
+    color: var(--main-color);
 }
 
 /* ----------- 스크롤 애니메이션 ----------- */
@@ -1053,6 +1080,14 @@ footer div h1 {
 
     body.active .logo-area {
         opacity: 0;
+    }
+
+    .floating-box .cart {
+        display: flex;
+    }
+
+    header .cart {
+        display: none;
     }
 
     .inner, #slider .content {

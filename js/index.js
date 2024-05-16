@@ -49,21 +49,10 @@ function scrollAnimation() {
 }
 
 function topbtnEvent() {
-    const topbtn = body.querySelector(".top");
-    const footer = body.querySelector("footer");
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                topbtn.classList.add("active");
-            } else {
-                topbtn.classList.remove("active");
-            }
-        });
-    });
-    observer.observe(footer);
+    const floatingBox = body.querySelector(".floating-box");
     if (scrollY >= 10) {
-        topbtn.style.transform = "translateY(0)";
+        floatingBox.style.transform = "translateY(0)";
     } else {
-        topbtn.style.transform = "translateY(65px)";
+        floatingBox.style.transform = "translateY(123px)";
     }
 }
