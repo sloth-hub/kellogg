@@ -42,9 +42,9 @@
     --M-gray: #cacbce;
     --L-gray: #f3f3f5;
     --white: #fff;
-    --h1: 'S-CoreDream-7ExtraBold';
-    --h2: 'S-CoreDream-6Bold';
-    --h3: 'S-CoreDream-5Medium';
+    --exBold: 'S-CoreDream-7ExtraBold';
+    --bold: 'S-CoreDream-6Bold';
+    --med: 'S-CoreDream-5Medium';
     --reg: 'S-CoreDream-4Regular';
     --light: 'S-CoreDream-3Light';
 }
@@ -74,18 +74,18 @@ a {
 }
 
 h1 {
-    font-family: var(--h1);
+    font-family: var(--exBold);
     transition: font-size 0.3 ease;
 }
 
 h2 {
-    font-family: var(--h2);
+    font-family: var(--med);
     font-size: 20px;
     transition: font-size 0.3 ease;
 }
 
 h3 {
-    font-family: var(--h3);
+    font-family: var(--reg);
 }
 
 img {
@@ -491,7 +491,6 @@ header.active::after {
 }
 
 .text-wrap h2 {
-    font-family: var(--h3);
     line-height: 30px;
     font-weight: 500;
     white-space: pre-line;
@@ -579,6 +578,7 @@ header.active::after {
 }
 
 #cereals h1 {
+    font-family: var(--med);
     position: relative;
     font-size: 2.5rem;
     margin-bottom: 60px;
@@ -588,19 +588,18 @@ header.active::after {
 #cereals h1:after {
     content: "";
     position: absolute;
-    width: 100%;
+    width: 1px;
     height: 20px;
     left: 0;
     bottom: 0;
     z-index: -1;
-    /* width: 80px;
-    height: 80px;
-    z-index: -1;
-    left: -30px;
-    bottom: -10px;
-    border-radius: 50%;
-    border-bottom-right-radius: 0; */
     background-color: rgb(186, 12, 47, 0.1);
+    transition: width 0.3s ease;
+    transition-delay: 0.1s;
+}
+
+#cereals h1.animate.active:after {
+    width: 100%;
 }
 
 #cereals ul {
@@ -612,13 +611,11 @@ header.active::after {
 #cereals ul li {
     position: relative;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 300px;
-    height: 300px;
-    overflow: hidden;
+    width: 280px;
     border-radius: 30px;
-    box-shadow: 0px 10px 15px rgba(var(--shadow), 0.1);
     transition: all 0.3s ease;
 }
 
@@ -635,49 +632,20 @@ header.active::after {
 }
 
 #cereals .caption {
-    transition: all 0.3s ease;
-    cursor: default;
-    background-color: var(--white);
-}
-
-#cereals .caption {
-    position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    z-index: 1;
-    width: 100%;
-    height: 50%;
-    left: 0;
-    bottom: 0;
-    padding-left: 40px;
-    border-top-left-radius: 30px;
-    box-shadow: 0px -10px 15px rgba(var(--shadow), 0.1);
-    transform: translateY(67px);
-}
-
-#cereals .caption span {
-    color: var(--main-color);
-}
-
-#cereals ul li:hover .caption {
-    transform: translateY(0);
-}
-
-#cereals ul li .more-btn {
-    margin-top: 30px;
-    padding: 3px 15px 5px;
-    transition: margin-top 0.2s ease;
-}
-
-#cereals ul li:hover .more-btn {
-    margin-top: 15px;
-}
-
-#cereals ul li img {
-    width: auto;
-    max-width: 800px;
+    align-items: center;
     transition: all 0.3s ease;
+    cursor: default;
+}
+
+#cereals h2 {
+    font-family: var(--bold);
+}
+
+#cereals button {
+    margin-top: 18px;
 }
 
 /* ----------- 베러데이즈 ----------- */
@@ -966,30 +934,6 @@ footer div h1 {
         font-size: 18px;
     }
 
-    #cereals {
-        display: flex;
-        align-items: center;
-        height: 100vh;
-        padding-top: 0;
-    }
-
-    #cereals ul li {
-        width: 250px;
-        height: 250px;
-    }
-
-    #cereals ul li img {
-        max-width: 650px;
-    }
-
-    #cereals .caption {
-        transform: translateY(58px);
-    }
-
-    #cereals ul li .more-btn {
-        margin-top: 20px;
-    }
-
     #betterdays .content {
         height: 560px;
     }
@@ -1215,7 +1159,6 @@ footer div h1 {
     .swiper-pagination {
         bottom: 0 !important;
         padding: 20px 0;
-
     }
 
     .text-wrap {
@@ -1243,40 +1186,12 @@ footer div h1 {
         width: 45%;
     }
 
-    #cereals h1 {
-        font-size: 2.2rem;
-    }
-
     #cereals ul {
         grid-gap: 30px;
     }
 
     #cereals ul li {
         width: auto;
-        height: auto;
-    }
-
-    #cereals ul li img {
-        max-width: 500px;
-    }
-
-    #cereals .caption {
-        transform: translateY(50px);
-        padding-left: 30px;
-    }
-
-    #cereals .caption h2 {
-        font-size: 1rem;
-    }
-
-    #cereals ul li .more-btn {
-        margin-top: 20px;
-        font-size: 0.8rem;
-        padding: 2px 10px 4px;
-    }
-
-    #cereals ul li:hover .more-btn {
-        margin-top: 10px;
     }
 
     #betterdays {
@@ -1367,35 +1282,12 @@ footer div h1 {
         width: 100%;
     }
 
-    #cereals ul {
-        width: 100%;
-        justify-items: center;
-    }
-
-    #cereals ul li {
-        width: 100%;
-        height: 28vw;
-    }
-
-    #cereals ul li img {
-        max-width: 70vw;
-    }
-
     #cereals h1 {
         font-size: 5vw;
     }
 
-    #cereals .caption {
-        padding-left: 30px;
-        transform: translateY(6.8vw);
-    }
-
-    #cereals ul li .more-btn {
-        margin-top: 2vw;
-    }
-
     #cereals .caption h2 {
-        font-size: 2.2vw;
+        font-size: 18px;
     }
 
     #betterdays .title {
@@ -1549,11 +1441,11 @@ footer div h1 {
         font-size: max(2.1vw, 10px);
         padding: 10px 16px;
     }
-    
+
     button.shadow {
         font-size: 12px;
         padding: 14px 24px;
-        box-shadow: 0px 12px 20px 0px rgba(186, 12, 47, 0.2);
+        box-shadow: 0px 12px 18px 0px rgba(186, 12, 47, 0.2);
     }
 
     .more-btn {
@@ -1565,7 +1457,6 @@ footer div h1 {
     }
 
     #cereals .inner {
-        padding-top: 80px;
         padding-bottom: 60px;
     }
 
@@ -1583,8 +1474,7 @@ footer div h1 {
     }
 
     #cereals ul li {
-        width: auto;
-        height: auto;
+        padding-bottom: 10px;
     }
 
     #cereals ul li:nth-child(4) {
@@ -1595,32 +1485,20 @@ footer div h1 {
         grid-column-end: -2;
     }
 
-    #cereals ul li img {
-        max-width: 95vw;
-    }
-
-    #cereals ul .caption {
-        transform: translateY(10vw);
-        padding-left: 25px;
-        justify-content: center;
-        border-top-left-radius: 25px;
-    }
-
-    #cereals .caption h2 {
-        font-size: 3.2vw;
-    }
-
     #cereals h1:after {
         height: 10px;
     }
 
-    #cereals ul li .more-btn {
-        font-size: 3.2vw;
-        margin-top: 3.2vw;
+    #cereals .caption h2 {
+        font-size: max(3.2vw, 14px);
     }
 
-    #cereals ul li:hover .more-btn {
-        margin-top: 2vw;
+    #cereals .caption h3 {
+        font-size: max(3vw, 12px);
+    }
+
+    #cereals button {
+        margin-top: 16px;
     }
 
     #betterdays .title {
