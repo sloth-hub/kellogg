@@ -12,9 +12,6 @@ function tabEvent({ target }) {
     if (target.closest(".hamburger")) {
         nav.classList.toggle("active");
         body.classList.toggle("active");
-    } else if (target.closest(".nav-item")) {
-        nav.classList.toggle("active");
-        body.classList.toggle("active");
     }
 }
 
