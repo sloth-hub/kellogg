@@ -75,6 +75,10 @@ a {
 
 h1 {
     font-family: var(--exBold);
+    font-size: 56px;
+    line-height: 60px;
+    color: var(--main-color);
+    text-transform: uppercase;
     transition: font-size 0.3 ease;
 }
 
@@ -100,20 +104,6 @@ img {
     margin: -1px;
     overflow: hidden;
     clip-path: polygon(0 0, 0 0, 0 0);
-}
-
-.more {
-    font-family: var(--h1);
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5rem;
-    border-radius: 5px;
-    align-self: flex-end;
-    transition: color 0.2s linear;
-}
-
-.more:hover {
-    color: var(--main-color);
 }
 
 .fa-angle-right {
@@ -148,7 +138,7 @@ button.shadow:hover {
 button.white {
     font-size: 16px;
     padding: 18px 40px;
-    border: 1px solid rgba(255, 255, 255, 0.89);
+    border: 1px solid rgba(255, 255, 255, 0.9);
     border-radius: 8px;
     color: var(--white);
     background-color: transparent;
@@ -158,13 +148,10 @@ button.white {
 }
 
 button.white:hover {
-    background-color: rgba(255, 255, 255, 0.89);
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid transparent;
     color: var(--black);
     mix-blend-mode: screen;
-}
-
-article {
-    padding-top: 60px;
 }
 
 main {
@@ -186,7 +173,7 @@ header {
 .inner {
     width: 1140px;
     margin: 0 auto;
-    padding: 60px 0;
+    padding: 120px 0;
     display: flex;
     align-items: center;
 }
@@ -447,8 +434,8 @@ header.active::after {
 /* ----------- 슬라이더 ----------- */
 
 #slider {
+    padding-top: 120px;
     display: flex;
-    align-items: center;
 }
 
 #slider .content {
@@ -458,7 +445,14 @@ header.active::after {
     justify-content: space-between;
     cursor: default;
     width: 1140px;
-    height: 530px;
+}
+
+.swiper-wrapper {
+    align-items: center;
+}
+
+.swiper-pointer-events {
+    height: fit-content;
 }
 
 .swiper-backface-hidden .swiper-slide {
@@ -478,7 +472,7 @@ header.active::after {
     transition: all 0.2s ease;
 }
 
-.new-prod {
+#slider .new-prod {
     font-family: var(--h3);
     color: var(--main-color);
     background-color: var(--main-color-light);
@@ -488,7 +482,7 @@ header.active::after {
     border-radius: 30px;
 }
 
-.text-wrap {
+#slider .text-wrap {
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -497,23 +491,22 @@ header.active::after {
     padding-right: 80px;
 }
 
-.text-wrap h1 {
-    font-size: 56px;
-    line-height: 60px;
+#slider .text-wrap h1 {
     white-space: pre-line;
+    color: var(--black);
 }
 
-.text-wrap h1 span {
+#slider .text-wrap h1 span {
     color: var(--main-color);
 }
 
-.text-wrap h2 {
+#slider .text-wrap h2 {
     line-height: 30px;
     font-weight: 500;
     white-space: pre-line;
 }
 
-.img-wrap {
+#slider .img-wrap {
     width: 42%;
 }
 
@@ -596,6 +589,7 @@ header.active::after {
 
 #cereals h1 {
     font-family: var(--med);
+    color: var(--black);
     position: relative;
     font-size: 2.5rem;
     margin-bottom: 60px;
@@ -698,99 +692,119 @@ header.active::after {
 
 /* ----------- 헬스 앤 뉴트리션 ----------- */
 
+#healthAndNutrition .inner {
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+    gap: 120px;
+}
+
 #healthAndNutrition ul {
     display: flex;
     flex-direction: row;
-    gap: 20px;
+    gap: 40px;
 }
 
 #healthAndNutrition ul li {
-    position: relative;
     cursor: default;
+    position: relative;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     overflow: hidden;
-    border-radius: 5px;
+    height: 400px;
+    border-radius: 8px;
     background-color: var(--white);
     box-shadow: 0px 10px 15px rgba(var(--shadow), 0.2);
     transition: all 0.3s ease;
 }
 
-#healthAndNutrition ul li:hover {
-    transform: translate(3px, 3px);
-    box-shadow: 0px 5px 5px rgba(var(--shadow), 0.2);
-}
-
-#healthAndNutrition ul li div {
+#healthAndNutrition .img-wrap {
     display: flex;
-}
-
-#healthAndNutrition ul li div:first-child {
-    position: relative;
     align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    width: 250px;
-    height: 250px;
+    height: 400px;
 }
 
-#healthAndNutrition ul li div:last-child {
+#healthAndNutrition img {
+    transition: all 0.2s linear;
+}
+
+#healthAndNutrition ul li:hover img {
+    filter: blur(10px);
+}
+
+#healthAndNutrition .info {
+    position: absolute;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    width: 60%;
+    bottom: 0;
+    height: 100%;
     padding: 30px;
+    background-color: var(--white);
+    transition: all 0.3s ease-out;
+    transform: translateY(282px);
 }
 
-#healthAndNutrition ul li img {
-    width: 120%;
-    filter: saturate(120%);
+#healthAndNutrition ul li:hover .info {
+    justify-content: center;
+    transform: translateY(0px);
+    background-color: rgba(255, 255, 255, 0.9);
 }
 
-#healthAndNutrition ul li h2 {
-    font-size: 1.3rem;
-    color: var(--main-color);
+#healthAndNutrition .info h2 {
+    font-size: 18px;
+    font-family: var(--light);
+    color: var(--D-gray);
 }
 
-#healthAndNutrition ul li h2::after {
+#healthAndNutrition .info h3::after {
     content: "";
     display: block;
     width: 50px;
     height: 1px;
-    margin-top: 16px;
+    margin: 30px 0;
     border-top: 1px solid var(--M-gray);
 }
 
-#healthAndNutrition ul li p {
-    font-family: var(--reg);
-    color: var(--D-gray);
-    font-size: 0.9rem;
+#healthAndNutrition .info h3 {
+    font-size: 24px;
+    font-family: var(--bold);
 }
 
-#healthAndNutrition ul li .more {
-    font-size: 0.8rem;
-    padding: 8px 16px;
-    color: var(--M-gray);
-    border: 1px solid var(--M-gray);
-    border-radius: 5px;
-    align-self: flex-end;
+#healthAndNutrition .info p {
+    font-family: var(--reg);
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+#healthAndNutrition .info .more {
+    font-size: 16px;
+    font-family: var(--bold);
+    letter-spacing: 6px;
+    text-transform: uppercase;
     transition: all 0.3s ease;
-    letter-spacing: normal;
-    font-family: var(--reg);
 }
 
-#healthAndNutrition ul li .more:hover {
-    color: var(--D-gray);
-    border: 1px solid var(--D-gray);
+#healthAndNutrition .info .more:hover {
+    color: var(--main-color);
+}
+
+#healthAndNutrition ul li:hover .info .more {
+    margin-top: 0;
 }
 
 /* ----------- 레시피 ----------- */
 
 #recipes {
     height: 100vh;
+    background-color: var(--L-gray);
 }
 
-#recipes .inner>div, #recipes ul, #recipes ul li>a>div {
+#recipes .inner {
+    gap: 120px;
+    flex-direction: column;
+}
+
+#recipes ul, #recipes ul li>a>div {
     display: flex;
 }
 
@@ -919,20 +933,30 @@ footer div h1 {
         width: 940px;
     }
 
-    .text-wrap {
+    #slider .text-wrap {
         padding-right: 40px;
     }
 
-    .text-wrap h1 {
+    #slider .text-wrap h1 {
         font-size: 48px;
         line-height: 52px;
     }
 
-    .text-wrap h2 {
+    #slider .text-wrap h2 {
         font-size: 18px;
     }
 
-    #betterdays .content {}
+    #healthAndNutrition ul {
+        gap: 30px;
+    }
+
+    #healthAndNutrition ul li, #healthAndNutrition .img-wrap {
+        height: 320px;
+    }
+
+    #healthAndNutrition .info {
+        transform: translateY(202px);
+    }
 
 }
 
@@ -1144,25 +1168,17 @@ footer div h1 {
         display: flex;
     }
 
-    #slider {
-        padding-top: 120px;
-    }
-
-    #slider .content {
-        height: auto;
-    }
-
-    .swiper-pagination {
+    #slider .swiper-pagination {
         bottom: 0 !important;
         padding: 20px 0;
     }
 
-    .text-wrap {
+    #slider .text-wrap {
         width: 55%;
         padding-right: 20px;
     }
 
-    .text-wrap h1 {
+    #slider .text-wrap h1 {
         font-size: 42px;
         line-height: 48px;
         padding-right: 0px;
@@ -1173,12 +1189,12 @@ footer div h1 {
         padding-right: 60px;
     }
 
-    .text-wrap h2 {
+    #slider .text-wrap h2 {
         font-size: 16px;
         line-height: 24px;
     }
 
-    .img-wrap {
+    #slider .img-wrap {
         width: 45%;
     }
 
@@ -1192,15 +1208,15 @@ footer div h1 {
 
     #healthAndNutrition ul {
         flex-direction: column;
+        gap: 40px;
     }
 
-    #healthAndNutrition ul li div:last-child {
-        width: 65%;
-        justify-content: space-around;
+    #healthAndNutrition ul li, #healthAndNutrition .img-wrap {
+        height: 400px;
     }
 
-    #recipes ul li+li {
-        margin-left: 30px;
+    #healthAndNutrition .info {
+        transform: translateY(282px);
     }
 
     #recipes ul li>a>div {
@@ -1237,7 +1253,7 @@ footer div h1 {
         padding: 16px 28px;
     }
 
-    .new-prod {
+    #slide .new-prod {
         font-size: 11px;
         padding: 12px 18px;
     }
@@ -1250,12 +1266,12 @@ footer div h1 {
         padding-right: 0;
     }
 
-    .text-wrap h1 {
+    #slide .text-wrap h1 {
         font-size: 36px;
         line-height: 42px;
     }
 
-    .text-wrap h2 {
+    #slide .text-wrap h2 {
         font-size: 15px;
         line-height: 23px;
     }
@@ -1276,16 +1292,24 @@ footer div h1 {
         font-size: 5vw;
     }
 
+    #cereals h1:after {
+        bottom: 8px;
+    }
+
     #cereals .caption h2, #betterdays .title p {
         font-size: 18px;
     }
 
     #betterdays .title h1 {
-        font-size: 58px;
+        font-size: 56px;
     }
 
     #betterdays .title {
         gap: 30px;
+    }
+
+    #healthAndNutrition h1 {
+        text-align: center;
     }
 
     #recipes {
@@ -1402,28 +1426,28 @@ footer div h1 {
         padding-right: 0;
     }
 
-    .text-wrap {
+    #slide r.text-wrap {
         width: 100%;
         gap: 20px;
         padding-right: 0;
     }
 
-    .text-wrap h1 {
+    #slider .text-wrap h1 {
         white-space: nowrap;
         font-size: 7vw;
         line-height: 8vw;
     }
 
-    .text-wrap h2 {
+    #slider .text-wrap h2 {
         font-size: max(3vw, 13px);
         line-height: max(4.6vw, 16px);
     }
 
-    .img-wrap {
+    #slider .img-wrap {
         width: 60%;
     }
 
-    .new-prod {
+    #slider .new-prod {
         font-size: max(2.1vw, 10px);
         padding: 10px 16px;
     }
@@ -1472,7 +1496,8 @@ footer div h1 {
     }
 
     #cereals h1:after {
-        height: 10px;
+        height: 12px;
+        bottom: 14px;
     }
 
     #cereals .caption h2 {
@@ -1502,32 +1527,23 @@ footer div h1 {
         font-size: 16px;
     }
 
-    #healthAndNutrition .title .more {
-        align-self: center;
+    #healthAndNutrition ul li, #healthAndNutrition .img-wrap {
+        height: 100%;
     }
 
-    #healthAndNutrition ul li {
-        overflow: unset;
-        flex-direction: row-reverse;
-        align-items: center;
-        padding: 25px;
+    #healthAndNutrition .info {
+        justify-content: center;
+        transform: translateY(0);
+        background-color: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(5px);
     }
 
-    #healthAndNutrition ul li div:first-child {
-        display: none;
+    #healthAndNutrition ul li:hover .info {
+        background-color: rgba(255, 255, 255, 0.8);
     }
 
-    #healthAndNutrition ul li div:first-child img {
-        display: none;
-    }
-
-    #healthAndNutrition ul li div:last-child {
-        width: 100%;
-        padding: 0;
-    }
-
-    #healthAndNutrition ul li p {
-        padding: 20px 0;
+    #healthAndNutrition ul li:hover img {
+        filter: initial;
     }
 
     #recipes {
