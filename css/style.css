@@ -696,39 +696,36 @@ header.active::after {
     color: var(--white);
 }
 
-#betterdays ul {
+/* ----------- 헬스 앤 뉴트리션 ----------- */
+
+#healthAndNutrition ul {
     display: flex;
     flex-direction: row;
-    z-index: 1;
+    gap: 20px;
 }
 
-#betterdays ul li {
+#healthAndNutrition ul li {
     position: relative;
     cursor: default;
     display: flex;
     justify-content: space-between;
     overflow: hidden;
-    width: 100%;
     border-radius: 5px;
     background-color: var(--white);
     box-shadow: 0px 10px 15px rgba(var(--shadow), 0.2);
     transition: all 0.3s ease;
 }
 
-#betterdays ul li+li {
-    margin-left: 30px;
-}
-
-#betterdays ul li:hover {
+#healthAndNutrition ul li:hover {
     transform: translate(3px, 3px);
     box-shadow: 0px 5px 5px rgba(var(--shadow), 0.2);
 }
 
-#betterdays ul li div {
+#healthAndNutrition ul li div {
     display: flex;
 }
 
-#betterdays ul li div:first-child {
+#healthAndNutrition ul li div:first-child {
     position: relative;
     align-items: center;
     justify-content: center;
@@ -737,7 +734,7 @@ header.active::after {
     height: 250px;
 }
 
-#betterdays ul li div:last-child {
+#healthAndNutrition ul li div:last-child {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -745,17 +742,17 @@ header.active::after {
     padding: 30px;
 }
 
-#betterdays ul li img {
+#healthAndNutrition ul li img {
     width: 120%;
     filter: saturate(120%);
 }
 
-#betterdays ul li h2 {
+#healthAndNutrition ul li h2 {
     font-size: 1.3rem;
     color: var(--main-color);
 }
 
-#betterdays ul li h2::after {
+#healthAndNutrition ul li h2::after {
     content: "";
     display: block;
     width: 50px;
@@ -764,13 +761,13 @@ header.active::after {
     border-top: 1px solid var(--M-gray);
 }
 
-#betterdays ul li p {
+#healthAndNutrition ul li p {
     font-family: var(--reg);
     color: var(--D-gray);
     font-size: 0.9rem;
 }
 
-#betterdays ul li .more {
+#healthAndNutrition ul li .more {
     font-size: 0.8rem;
     padding: 8px 16px;
     color: var(--M-gray);
@@ -782,7 +779,7 @@ header.active::after {
     font-family: var(--reg);
 }
 
-#betterdays ul li .more:hover {
+#healthAndNutrition ul li .more:hover {
     color: var(--D-gray);
     border: 1px solid var(--D-gray);
 }
@@ -935,9 +932,7 @@ footer div h1 {
         font-size: 18px;
     }
 
-    #betterdays .content {
-        height: 560px;
-    }
+    #betterdays .content {}
 
 }
 
@@ -1195,21 +1190,11 @@ footer div h1 {
         width: auto;
     }
 
-    #betterdays {
-        height: 100%;
-        min-height: 100vh;
-    }
-
-    #betterdays ul {
+    #healthAndNutrition ul {
         flex-direction: column;
     }
 
-    #betterdays ul li+li {
-        margin-left: 0;
-        margin-top: 40px;
-    }
-
-    #betterdays ul li div:last-child {
+    #healthAndNutrition ul li div:last-child {
         width: 65%;
         justify-content: space-around;
     }
@@ -1232,7 +1217,7 @@ footer div h1 {
 /* 스마트폰 가로 */
 @media screen and (max-width:768px) {
 
-    article, #recipes {
+    article {
         height: 100%;
     }
 
@@ -1279,6 +1264,10 @@ footer div h1 {
         padding: 80px 15px;
     }
 
+    #cereals {
+        min-height: 100vh;
+    }
+
     #cereals .inner {
         width: 100%;
     }
@@ -1287,16 +1276,16 @@ footer div h1 {
         font-size: 5vw;
     }
 
-    #cereals .caption h2 {
+    #cereals .caption h2, #betterdays .title p {
         font-size: 18px;
     }
 
-    #betterdays .title {
-        margin-bottom: 50px;
+    #betterdays .title h1 {
+        font-size: 58px;
     }
 
-    #betterdays .title p {
-        font-size: 3vw;
+    #betterdays .title {
+        gap: 30px;
     }
 
     #recipes {
@@ -1365,10 +1354,6 @@ footer div h1 {
 
     article {
         padding-top: 30px;
-    }
-
-    .inner {
-        padding-bottom: 30px;
     }
 
     .hamburger::before, .hamburger::after, .hamburger div {
@@ -1503,50 +1488,45 @@ footer div h1 {
     }
 
     #betterdays .title {
-        padding: 0 10px;
-        text-align: center;
-        margin-bottom: 40px;
+        align-items: center;
     }
 
     #betterdays .title h1 {
-        font-size: 2.5rem;
-        line-height: 2.5rem;
-        margin-bottom: 20px;
+        font-size: 40px;
+        line-height: 42px;
+        text-align: center;
     }
 
     #betterdays .title p {
-        font-size: max(3.5vw, 15px);
+        text-align: center;
+        font-size: 16px;
     }
 
-    #betterdays .title .more {
+    #healthAndNutrition .title .more {
         align-self: center;
     }
 
-    #betterdays ul li {
+    #healthAndNutrition ul li {
         overflow: unset;
         flex-direction: row-reverse;
         align-items: center;
         padding: 25px;
     }
 
-    #betterdays ul li+li {
-        margin-top: 30px;
-    }
-
-    #betterdays ul li div:first-child {
+    #healthAndNutrition ul li div:first-child {
         display: none;
     }
 
-    #betterdays ul li div:first-child img {
+    #healthAndNutrition ul li div:first-child img {
         display: none;
     }
 
-    #betterdays ul li div:last-child {
+    #healthAndNutrition ul li div:last-child {
         width: 100%;
         padding: 0;
     }
 
-    #betterdays ul li p {
+    #healthAndNutrition ul li p {
         padding: 20px 0;
     }
 
