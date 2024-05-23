@@ -900,49 +900,44 @@ footer .inner {
 
 footer div {
     display: flex;
-}
-
-footer div, footer a {
     color: var(--white);
 }
 
-footer .copyright, footer .company, footer .sns {
-    flex-direction: column;
-    font-family: var(--light);
-    font-size: 0.9rem;
-    line-height: 1.5rem;
-}
-
 footer div h1 {
-    font-size: 1rem;
+    color: var(--white);
+    font-size: 16px;
+    line-height: 16px;
     margin-bottom: 10px;
 }
 
-.copyright {
-    width: 25%;
+footer .inner>div {
+    flex-direction: column;
+    font-family: var(--light);
+    font-size: 14px;
+    line-height: 20px;
 }
 
-.company p {
+footer .company {
+    width: max-content;
+}
+
+footer .copyright, footer .company {
     white-space: pre-line;
 }
 
-.company p span {
-    font-family: var(--h3);
+footer .company p span {
+    font-family: var(--bold);
 }
 
-.sns div {
+footer .sns div {
     display: flex;
+    gap: 10px;
 }
 
-.sns div a {
+footer .sns div a {
     width: 35px;
     height: 35px;
 }
-
-.sns a+a {
-    margin-left: 5px;
-}
-
 
 /* 데스크탑 */
 @media screen and (max-width:1199.98px) {
@@ -1265,6 +1260,10 @@ footer div h1 {
         font-size: 14px;
     }
 
+    footer p {
+        font-size: 13px;
+    }
+
 }
 
 /* 스마트폰 가로 */
@@ -1367,6 +1366,7 @@ footer div h1 {
     }
 
     #recipes ul li {
+        gap: 16px;
         padding: 16px;
     }
 
@@ -1385,17 +1385,11 @@ footer div h1 {
 
     footer .inner {
         flex-direction: column-reverse;
+        gap: 30px;
     }
 
-    footer .inner div+div {
-        margin-bottom: 30px;
-    }
-
-    .company p {
+    footer .copyright, footer .company {
         white-space: initial;
-    }
-
-    .copyright {
         width: auto;
     }
 
