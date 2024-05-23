@@ -1022,7 +1022,22 @@ footer .sns div a {
     }
 
     body.active .logo-area {
-        opacity: 0;
+        position: absolute;
+        top: 100px;
+        right: 100px;
+        z-index: 4;
+        animation: logo_ 0.3s ease;
+        filter: brightness(30);
+    }
+
+    @-webkit-keyframes logo_ {
+        from {
+            right: 0;
+        }
+
+        to {
+            right: 100px;
+        }
     }
 
     .floating-box {
@@ -1055,10 +1070,6 @@ footer .sns div a {
         background-color: transparent;
         border-bottom: none;
         box-shadow: none;
-    }
-
-    header.active .logo-area {
-        transform: none;
     }
 
     nav.active .hamburger {
@@ -1108,7 +1119,7 @@ footer .sns div a {
         right: 0;
         top: 0;
         z-index: 3;
-        padding-top: 25%;
+        padding-top: 230px;
         padding-left: 30px;
         transform: translateX(300px);
         transition: transform 0.3s ease;
@@ -1119,14 +1130,10 @@ footer .sns div a {
         transform: translateX(0);
     }
 
-    nav.active .nav-item {
-        padding: 20px 0;
-    }
-
     nav.active .nav-item a {
         color: var(--white);
         padding: 8px 0;
-        font-size: 1rem;
+        font-size: 16px;
         transition: all 0.3s ease;
     }
 
@@ -1143,6 +1150,7 @@ footer .sns div a {
         transform: none;
         background-color: var(--white);
         opacity: 0;
+        border-radius: 0;
         transition: opacity 0.3s ease;
         transition-delay: 0.1s;
     }
@@ -1163,14 +1171,13 @@ footer .sns div a {
     }
 
     nav.active .sub-menu {
-        margin-top: 20px;
-        padding-left: 20px;
+        padding-left: 30px;
         position: initial;
     }
 
     nav.active .sub-menu .nav-item {
         text-align: left;
-        padding: 10px 0;
+        padding: 0;
         width: 200px;
     }
 
@@ -1192,12 +1199,17 @@ footer .sns div a {
 
     header.active .sub-menu,
     header.active .nav-item .sub-menu {
-        display: none;
+        display: flex;
+        height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: 0.3s ease;
     }
 
     header.active .nav-item:hover .sub-menu,
     header.active .nav-item .sub-menu:hover {
-        display: flex;
+        height: fit-content;
+        opacity: 1;
     }
 
     #slider .swiper-pagination {
@@ -1419,14 +1431,30 @@ footer .sns div a {
         padding-bottom: 0;
     }
 
+    @-webkit-keyframes logo_ {
+        from {
+            right: 0;
+        }
+
+        to {
+            right: calc(50vw - 40px);
+        }
+    }
+
     body.active .logo-area {
-        opacity: 1;
-        z-index: 4;
-        filter: brightness(100);
+        top: 20px;
+        right: calc(50vw - 40px);
+        align-content: center;
     }
 
     nav.active .main-menu {
         width: 100%;
+        padding-top: 80px;
+        gap: 16px;
+    }
+
+    nav.active .nav-item a {
+        font-size: 14px;
     }
 
     #slider {
