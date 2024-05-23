@@ -1448,16 +1448,16 @@ footer .sns div a {
         padding-right: 0;
     }
 
-    #slide r.text-wrap {
+    #slider .text-wrap {
         width: 100%;
         gap: 20px;
         padding-right: 0;
     }
 
     #slider .text-wrap h1 {
-        white-space: nowrap;
-        font-size: 7vw;
-        line-height: 8vw;
+        word-break: keep-all;
+        font-size: max(7vw, 20px);
+        line-height: max(8vw, 24px);
     }
 
     #slider .text-wrap h2 {
@@ -1476,7 +1476,7 @@ footer .sns div a {
 
     button.shadow {
         font-size: 12px;
-        padding: 14px 24px;
+        padding: max(3vw, 12px) max(5vw, 20px);
         box-shadow: 0px 12px 18px 0px rgba(186, 12, 47, 0.2);
     }
 
@@ -1490,6 +1490,7 @@ footer .sns div a {
 
     #cereals h1 {
         font-size: 4.8vw;
+        line-height: 5vw;
         word-break: keep-all;
         text-align: center;
         margin-bottom: 40px;
@@ -1497,7 +1498,7 @@ footer .sns div a {
 
     #cereals ul {
         grid-template-columns: repeat(4, 1fr);
-        grid-gap: 5.5vw;
+        grid-gap: 5vw;
         justify-items: initial;
     }
 
@@ -1515,7 +1516,7 @@ footer .sns div a {
 
     #cereals h1:after {
         height: 12px;
-        bottom: 14px;
+        bottom: -3px;
     }
 
     #cereals .caption h2 {
@@ -1524,10 +1525,11 @@ footer .sns div a {
 
     #cereals .caption h3 {
         font-size: max(3vw, 12px);
+        text-align: center;
     }
 
     #cereals button {
-        margin-top: 16px;
+        margin-top: 15px;
     }
 
     #betterdays .title {
@@ -1543,6 +1545,11 @@ footer .sns div a {
     #betterdays .title p {
         text-align: center;
         font-size: 16px;
+    }
+
+    button.white {
+        padding: 16px 32px;
+        font-size: 14px;
     }
 
     #healthAndNutrition .inner, #recipes .inner {
