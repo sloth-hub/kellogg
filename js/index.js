@@ -3,15 +3,18 @@ const body = document.querySelector("body");
 document.addEventListener("DOMContentLoaded", () => {
     scrollAnimation();
     this.addEventListener("scroll", topbtnEvent);
-    this.addEventListener("click", tabEvent);
+    this.addEventListener("click", tabCilckEvent);
     this.addEventListener("mouseover", tabHoverEvent);
 });
 
-function tabEvent({ target }) {
+function tabCilckEvent({ target }) {
     const nav = body.querySelector("nav");
     if (target.closest(".hamburger")) {
         nav.classList.toggle("active");
         body.classList.toggle("active");
+    } else if (target.closest(".nav-item")) {
+        body.classList.remove("active");
+        nav.classList.remove("active");
     }
 }
 
