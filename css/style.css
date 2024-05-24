@@ -962,14 +962,6 @@ footer .sns div a {
         gap: 30px;
     }
 
-    #healthAndNutrition ul li, #healthAndNutrition .img-wrap {
-        height: 320px;
-    }
-
-    #healthAndNutrition .info {
-        transform: translateY(202px);
-    }
-
     #recipes ul {
         gap: 30px;
     }
@@ -1251,6 +1243,27 @@ footer .sns div a {
         width: auto;
     }
 
+    #healthAndNutrition ul li, #healthAndNutrition .img-wrap {
+        height: 320px;
+    }
+
+    #healthAndNutrition .img-wrap {
+        justify-content: center;
+    }
+
+    #healthAndNutrition img {
+        width: 120%;
+    }
+
+    #healthAndNutrition .info {
+        padding: 20px;
+        transform: translateY(222px)
+    }
+
+    #healthAndNutrition .info h3::after {
+        margin: 20px 0;
+    }
+
     #recipes ul li {
         padding: 20px;
     }
@@ -1287,7 +1300,7 @@ footer .sns div a {
     }
 
     .inner {
-        width: auto;
+        width: 100%;
         padding-left: 20px;
         padding-right: 20px;
     }
@@ -1305,10 +1318,6 @@ footer .sns div a {
     #slide .new-prod {
         font-size: 11px;
         padding: 12px 18px;
-    }
-
-    #slider .content {
-        padding: 0 20px;
     }
 
     .swiper-slide[data-swiper-slide-index="1"] .text-wrap h1 {
@@ -1358,20 +1367,35 @@ footer .sns div a {
     }
 
     #healthAndNutrition ul {
-        flex-direction: column;
-        gap: 40px;
-    }
-
-    #healthAndNutrition ul li, #healthAndNutrition .img-wrap {
-        height: 400px;
-    }
-
-    #healthAndNutrition .info {
-        transform: translateY(282px);
+        gap: 20px;
     }
 
     #healthAndNutrition h1 {
         text-align: center;
+    }
+
+    #healthAndNutrition ul li, #healthAndNutrition .img-wrap {
+        height: 260px;
+    }
+
+    #healthAndNutrition .info {
+        transform: translateY(172px);
+    }
+
+    #healthAndNutrition .info h3 {
+        font-size: 18px;
+    }
+
+    #healthAndNutrition .info h2 {
+        font-size: 16px;
+    }
+
+    #healthAndNutrition .info p {
+        font-size: 14px;
+    }
+
+    #healthAndNutrition ul li:hover .info .more {
+        font-size: 15px;
     }
 
     #recipes ul {
@@ -1589,6 +1613,11 @@ footer .sns div a {
         font-size: 40px;
     }
 
+    #healthAndNutrition ul {
+        flex-direction: column;
+        gap: 30px;
+    }
+
     #healthAndNutrition ul li, #healthAndNutrition .img-wrap, #healthAndNutrition img {
         height: 100%;
         min-height: 260px;
@@ -1624,6 +1653,10 @@ footer .sns div a {
 
     #healthAndNutrition .info .more {
         font-size: max(2.8vw, 14px);
+    }
+
+    #healthAndNutrition ul li img {
+        width: 100%;
     }
 
     #healthAndNutrition ul li:hover img {
