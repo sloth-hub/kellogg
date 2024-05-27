@@ -12,9 +12,17 @@ function tabCilckEvent({ target }) {
     if (target.closest(".hamburger")) {
         nav.classList.toggle("active");
         body.classList.toggle("active");
+        if (nav.querySelector(".nav-item.sub.active")) {
+            nav.querySelector(".nav-item.sub.active").classList.remove("active");
+        }
     } else if (target.closest(".nav-item")) {
-        body.classList.remove("active");
-        nav.classList.remove("active");
+        const tgt = target.closest(".nav-item");
+        if (tgt.classList.contains("sub")) {
+            tgt.classList.toggle("active");
+        } else {
+            body.classList.remove("active");
+            nav.classList.remove("active");
+        }
     }
 }
 

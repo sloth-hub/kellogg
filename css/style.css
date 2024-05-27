@@ -1122,14 +1122,19 @@ footer .sns div a {
         transform: translateX(0);
     }
 
-    nav.active .nav-item a {
+    .nav-item a {
         color: var(--white);
         padding: 8px 0;
         font-size: 16px;
         transition: all 0.3s ease;
     }
 
-    nav.active .nav-item:hover a {
+    .nav-item:hover>a {
+        color: var(--white);
+    }
+
+    nav.active .nav-item:hover a,
+    .nav-item.sub.active a {
         padding-left: 20px;
     }
 
@@ -1147,50 +1152,41 @@ footer .sns div a {
         transition-delay: 0.1s;
     }
 
-    .nav-item a::after {
-        right: 0;
-        transform: none;
-    }
-
     .nav-item a:hover::before,
-    .nav-item:hover a::before {
+    .nav-item:hover a::before,
+    .nav-item.sub.active a::before {
         opacity: 1;
         width: 3px;
     }
 
-    .nav-item a:hover::after {
-        width: 0;
+    .nav-item.sub.active a::before {
+        visibility: visible;
     }
 
     nav.active .sub-menu {
-        padding-left: 30px;
+        padding-left: 20px;
         position: initial;
+        align-items: flex-start;
     }
 
-    nav.active .sub-menu .nav-item {
-        text-align: left;
-        padding: 0;
-        width: 200px;
+    .nav-item.sub.active .sub-menu {
+        visibility: visible;
     }
 
-    nav.active .sub-menu .nav-item:hover,
-    nav.active .sub-menu .nav-item a {
-        padding-left: 0;
-        font-family: var(--reg);
+    .sub-menu .nav-item a {
+        font-family: var(--light);
     }
 
-    nav.active .sub-menu .nav-item:hover a {
+    .sub-menu .nav-item:hover a {
         text-shadow: 0.25px 0px 0.1px, -0.25px 0px 0.1px;
     }
 
-    nav.active .sub-menu .nav-item a::before,
-    nav.active .sub-menu .nav-item a::after {
+    .sub-menu .nav-item a::before {
         width: 0;
         height: 0;
     }
 
-    header.active .sub-menu,
-    header.active .nav-item .sub-menu {
+    .nav-item .sub-menu {
         display: flex;
         height: 0;
         opacity: 0;
@@ -1198,9 +1194,8 @@ footer .sns div a {
         transition: 0.3s ease;
     }
 
-    header.active .nav-item:hover .sub-menu,
-    header.active .nav-item .sub-menu:hover {
-        height: fit-content;
+    .nav-item.active .sub-menu {
+        height: calc(100% - 39px);
         opacity: 1;
     }
 
