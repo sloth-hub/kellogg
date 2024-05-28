@@ -796,7 +796,7 @@ header.active::after {
 /* ----------- 레시피 ----------- */
 
 #recipes {
-    min-height: 100vh;
+    min-height: calc(100vh - 123px);
     background-color: var(--L-gray);
 }
 
@@ -1353,12 +1353,17 @@ footer .sns div a {
         font-size: 18px;
     }
 
+    #betterdays .inner {
+        justify-content: center;
+    }
+
     #betterdays .title h1 {
         font-size: 56px;
     }
 
     #betterdays .title {
         gap: 30px;
+        align-items: center;
     }
 
     #healthAndNutrition ul {
