@@ -1046,7 +1046,7 @@ footer .sns div a {
         display: none;
     }
 
-    .inner, #slider .content {
+    .inner {
         width: 720px;
     }
 
@@ -1438,7 +1438,7 @@ footer .sns div a {
 @media screen and (max-width:575px) {
 
     .inner {
-        padding-top: 60px;
+        padding-top: 120px;
         padding-bottom: 60px;
     }
 
@@ -1471,7 +1471,7 @@ footer .sns div a {
 
     body.active .logo-area {
         top: 20px;
-        right: calc(50vw - 40px);
+        right: calc(50vw - 59px);
         align-content: center;
     }
 
@@ -1622,8 +1622,14 @@ footer .sns div a {
         gap: 30px;
     }
 
-    #healthAndNutrition ul li, #healthAndNutrition .img-wrap, #healthAndNutrition img {
+    #healthAndNutrition ul li {
         height: 100%;
+        min-height: 260px;
+        max-height: 360px;
+    }
+
+    #healthAndNutrition .img-wrap, #healthAndNutrition img {
+        height: initial;
         min-height: 260px;
     }
 
