@@ -61,6 +61,6 @@ function topbtnEvent() {
     if (scrollY >= 10) {
         floatingBox.style.transform = "translateY(0)";
     } else {
-        floatingBox.style.transform = "translateY(123px)";
+        floatingBox.style.transform = "translateY(132px)";
     }
 }

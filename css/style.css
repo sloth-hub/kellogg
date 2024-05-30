@@ -1438,7 +1438,7 @@ footer .sns div a {
 @media screen and (max-width:575px) {
 
     .inner {
-        padding-top: 120px;
+        padding-top: 80px;
         padding-bottom: 60px;
     }
 
@@ -1556,10 +1556,6 @@ footer .sns div a {
         grid-template-columns: repeat(4, 1fr);
         grid-gap: 5vw;
         justify-items: initial;
-    }
-
-    #cereals ul li {
-        padding-bottom: 10px;
     }
 
     #cereals ul li:nth-child(4) {
