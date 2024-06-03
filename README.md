@@ -1,6 +1,6 @@
 # KELLOGG SITE REDESIGN
 
-기존의 켈로그 사이트를 깔끔하고 가독성 있게 리디자인하고 
+기존의 켈로그 사이트를 Figma를 사용해 깔끔하고 가독성 있게 리디자인하고,
 InterSection Observer API를 사용해 스크롤 애니메이션을 적용한 반응형 웹사이트입니다.
 
 ## SITE LINK
