@@ -1167,7 +1167,7 @@ footer .sns div a {
     }
 
     nav.active .sub-menu {
-        padding-left: 20px;
+        padding-left: 10px;
         position: initial;
         align-items: flex-start;
     }
