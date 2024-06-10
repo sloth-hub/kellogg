@@ -1047,7 +1047,7 @@ footer .sns div a {
         display: none;
     }
 
-    .inner {
+    .inner, #slider .content {
         width: 720px;
     }
 
