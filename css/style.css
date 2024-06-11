@@ -243,6 +243,11 @@ nav {
 
 .nav-item svg {
     color: var(--main-color);
+    transition: transform 0.2s ease;
+}
+
+header.active .nav-item svg {
+    transform: rotate(180deg);
 }
 
 header.active .sub-menu {
