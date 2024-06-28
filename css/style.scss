@@ -4,14 +4,14 @@ $D-gray: #969494;
 $M-gray: #cacbce;
 $L-gray: #f3f3f5;
 $white: #fff;
-$shadow-light: 61, 30, 40;
-$shadow-dark: 186, 12, 47;
+$shadow-light: #3d1e28;
+$shadow-dark: #ba0c2f;
 $font-7-exBold: "S-CoreDream-7ExtraBold";
 $font-6-bold: "S-CoreDream-6Bold";
 $font-5-med: "S-CoreDream-5Medium";
 $font-4-reg: "S-CoreDream-4Regular";
 $font-3-light: "S-CoreDream-3Light";
-$breakpoint-desktop: 1199.98px;
+$break-point-desktop: 1199.98px;
 $break-point-tablet-1: 991.98px;
 $break-point-tablet-2: 768px;
 $break-point-mobile: 575px;
@@ -31,22 +31,89 @@ $break-point-mobile: 575px;
     }
 }
 
-@mixin text-style($family: null, $size: null, $line-height: null, $color: null) {
+@mixin text-style($family: null, $size: null, $line-height: null, $weight: null, $color: null) {
     font-family: $family;
     font-size: $size;
     line-height: $line-height;
+    font-weight: $weight;
     color: $color;
-    transition: font-size 0.3 ease;
 }
 
-@mixin button-style($size: null, $padding: null, $radius: null, $bgcolor: null, $fontcolor: null, $transition) {
+@mixin button-style($size: null, $padding: null, $radius: null, $bgcolor: null, $fontcolor: null) {
     font-size: $size;
     padding: $padding;
     border-radius: $radius;
     background-color: $bgcolor;
     color: $fontcolor;
-    transition: $transition 0.1s linear;
-    cursor: pointer;
+}
+
+@mixin flex-style($direction: row, $align: normal, $justify: space-between) {
+    display: flex;
+    flex-direction: $direction;
+    align-items: $align;
+    justify-content: $justify;
+}
+
+@mixin hide {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: polygon(0 0, 0 0, 0 0);
+}
+
+@mixin keyframe($name) {
+    @keyframes #{$name} {
+        @content;
+    }
+
+    @-moz-keyframes #{$name} {
+        @content;
+    }
+
+    @-webkit-keyframes #{$name} {
+        @content;
+    }
+}
+
+@mixin animation($keyframe-name) {
+    -webkit-animation: #{$keyframe-name};
+    animation: #{$keyframe-name};
+}
+
+@include keyframe(logo) {
+    from {
+        right: 0;
+    }
+
+    to {
+        right: 100px;
+    }
+
+}
+
+@include max-screen($break-point-mobile) {
+
+    @include keyframe(logo) {
+        from {
+            right: 0;
+        }
+
+        to {
+            right: calc(50vw - 40px);
+        }
+    }
+}
+
+@include keyframe(opacity) {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 @include font-face("S-CoreDream-3Light", "https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff");
@@ -70,7 +137,6 @@ body {
     &.acitve {
         overflow: hidden;
 
-        // 타블렛(991px)
         @include max-screen($break-point-tablet-1) {
             main::before {
                 opacity: 1;
@@ -92,27 +158,25 @@ body {
                 top: 100px;
                 right: 100px;
                 z-index: 4;
-                animation: logo_ 0.3s ease;
                 filter: brightness(30);
-            }
-
-            // 모바일
-            @include max-screen($break-point-mobile) {
-                .logo-area {
-                    top: 20px;
-                    right: calc(50vw - 59px);
-                    align-content: center;
-                }
+                @include animation("logo 0.3s ease");
             }
 
         }
 
+        @include max-screen($break-point-mobile) {
+            .logo-area {
+                top: 20px;
+                right: calc(50vw - 59px);
+                align-content: center;
+            }
+        }
     }
 
 }
 
 h1 {
-    @include text-style($font-7-exBold, 56px, 60px, $main-color);
+    @include text-style($family: $font-7-exBold, $size: 56px, $line-height: 60px, $color: $main-color);
     text-transform: uppercase;
 }
 
@@ -124,6 +188,18 @@ h3 {
     @include text-style($font-4-reg);
 }
 
+h1,
+h2,
+h3,
+p {
+    transition: all 0.3s ease;
+}
+
+a {
+    text-decoration: none;
+    color: $black;
+}
+
 img {
     width: 100%;
     vertical-align: middle;
@@ -132,17 +208,51 @@ img {
 main {
     position: relative;
     margin: 0 auto;
+
+    &::before {
+        @include max-screen($break-point-tablet-1) {
+            display: none;
+            position: fixed;
+            content: "";
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            z-index: 2;
+            background-color: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(5px);
+            transition: all 0.3s linear;
+        }
+    }
+}
+
+article {
+    @include max-screen($break-point-tablet-2) {
+        height: 100%;
+    }
 }
 
 button {
 
-    @include button-style(14px, null, null, $main-color, $white, null);
+    @include button-style($size: 14px, $bgcolor: $main-color, $fontcolor: $white);
     width: max-content;
     border: none;
+    cursor: pointer;
 
     &.shadow {
-        @include button-style(15px, 20px 30px, 30px, null, null, box-shadow);
-        box-shadow: 0px 15px 25px 0px rgba(186, 12, 47, 0.2);
+        @include button-style(15px, 20px 30px, 30px);
+        box-shadow: 0px 15px 25px 0px rgba($shadow-dark, 0.2);
+        transition: box-shadow 0.1s linear;
+
+        @include max-screen($break-point-tablet-2) {
+            @include button-style(14px, 16px 28px);
+        }
+
+        @include max-screen($break-point-mobile) {
+            @include button-style(12px, max(3vw, 12px) max(5vw, 20px));
+            box-shadow: 0px 12px 18px 0px rgba($shadow-dark, 0.2);
+        }
 
         &:hover {
             box-shadow: none;
@@ -150,29 +260,421 @@ button {
     }
 
     &.white {
-        @include button-style(16px, 18px 40px, 8px, transparent, null, all);
-        border: 1px solid rgba(255, 255, 255, 0.9);
-        color: var(--white);
+        @include button-style(16px, 18px 40px, 8px, transparent);
+        @include text-style($family: $font-5-med, $color: $white);
         text-transform: uppercase;
-        font-family: var(--med);
+        border: 1px solid rgba($white, 0.9);
+        transition: all 0.1s linear;
+
+        @include max-screen($break-point-mobile) {
+            @include button-style(14px, 16px 32px);
+        }
 
         &:hover {
-            @include button-style(15px, 20px 30px, 30px, null, $black);
+            @include button-style($bgcolor: rgba($white, 0.9) ,$fontcolor: $black);
             mix-blend-mode: screen;
         }
     }
 }
 
-.cart {
-    @include button-style(14px, null, 50%, $main-color, $white, all);
-    position: relative;
+.inner {
+    @include flex-style(row, center);
+    width: 1140px;
+    margin: 0 auto;
+    padding: 120px 0;
+
+    @include max-screen($break-point-mobile) {
+        padding-top: 80px;
+        padding-bottom: 60px;
+    }
+}
+
+/* ----------- 스크롤 애니메이션 ----------- */
+
+.animate {
+    transition: transform 2s ease, opacity .5s linear;
+    opacity: 0;
+
+    &.active {
+        opacity: 1;
+    }
+
+    &.delay {
+        transition-delay: .5s;
+    }
+
+    &.left {
+        transform: translate(-10%, -10%);
+
+        &.active {
+            transform: translate(0);
+        }
+    }
+
+    &.scale {
+        transition: transform 1s ease;
+        transform: scale(0);
+
+        &.active {
+            transform: scale(1);
+        }
+    }
+}
+
+/* ----------- header ----------- */
+
+header {
+    width: 100%;
+    height: 60px;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    position: fixed;
+    z-index: 3;
+    transition: all 0.2s linear;
+
+    &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        border-radius: 15px;
+        transition: 0.3s ease;
+        box-sizing: border-box;
+    }
+
+    &.active {
+
+        &::after {
+            height: 280px;
+            background-color: $white;
+            border-bottom: 1px solid $L-gray;
+            box-shadow: 0px 1px 10px rgba($shadow-light, 0.1);
+
+            @include max-screen($break-point-tablet-1) {
+                height: 60px;
+                background-color: transparent;
+                border-bottom: none;
+                box-shadow: none;
+            }
+        }
+
+        .nav-item svg {
+            transform: rotate(180deg);
+        }
+
+        .sub-menu {
+            visibility: visible;
+            display: flex;
+        }
+    }
+
+    .inner {
+        @include flex-style(row, center);
+        padding: 0;
+
+        @include max-screen($break-point-desktop) {
+            width: 940px;
+        }
+
+        @include max-screen($break-point-tablet-2) {
+            padding: 0 24px;
+            width: 100%;
+        }
+    }
+
+    nav {
+        @include flex-style(row);
+        width: 100%;
+
+        @include max-screen($break-point-tablet-1) {
+
+            &.active {
+                .hamburger {
+                    position: absolute;
+                    top: 20px;
+                    right: 20px;
+
+                    &::before {
+                        transform: translateY(8px) translateX(-2px) rotate(135deg);
+                        border-color: $white;
+
+                        @include max-screen($break-point-mobile) {
+                            transform: translateY(6px) translateX(-2px) rotate(135deg);
+                        }
+                    }
+
+                    &::after {
+                        transform: translateY(-12px) translateX(3px) rotate(-135deg);
+                        padding-bottom: 7px;
+                        border-color: $white;
+
+                        @include max-screen($break-point-mobile) {
+                            transform: translateY(-6px) translateX(0px) rotate(-135deg);
+                            padding-bottom: 0;
+                        }
+                    }
+
+                    &>div {
+                        transform: scale(0);
+                    }
+                }
+
+                .main-menu {
+                    transform: translateX(0);
+
+                    @include max-screen($break-point-mobile) {
+                        width: 100%;
+                        padding-top: 80px;
+                        gap: 16px;
+                        overflow-y: auto;
+                    }
+                }
+
+                .nav-item {
+                    &:hover a {
+                        padding-left: 20px;
+                    }
+                }
+
+                .sub-menu {
+                    padding-left: 10px;
+                    position: initial;
+                    align-items: flex-start;
+                }
+            }
+
+            .hamburger {
+
+                &::before,
+                &::after {
+                    position: relative;
+                    display: block;
+                    content: "";
+                    width: 30px;
+                    z-index: 4;
+                    border-top: 3px solid $black;
+                    padding-bottom: 7px;
+                    transition: all 0.5s ease;
+                }
+
+                &::after {
+                    padding-bottom: 0;
+                }
+            }
+        }
+
+    }
+
+    .hamburger {
+
+        display: none;
+
+        @include max-screen($break-point-tablet-1) {
+            display: block;
+            cursor: pointer;
+        }
+
+        @include max-screen($break-point-mobile) {
+
+            &::before,
+            &::after,
+            div {
+                width: 25px;
+            }
+
+            &::before,
+            div {
+                padding-bottom: 5px;
+            }
+        }
+    }
+
+    .logo-area {
+        opacity: 1;
+        z-index: 1;
+        width: 100px;
+        transition: all 0.1s ease;
+    }
+
+    .main-menu {
+        @include flex-style(row);
+        gap: 30px;
+
+        @include max-screen($break-point-tablet-1) {
+            @include flex-style(column, flex-start, flex-start);
+            position: fixed;
+            width: 300px;
+            height: 100%;
+            right: 0;
+            top: 0;
+            z-index: 3;
+
+            padding: {
+                top: 230px;
+                left: 30px;
+            }
+
+            background-color: $main-color;
+            transform: translateX(300px);
+            transition: transform 0.3s ease;
+        }
+    }
+
+    .nav-item {
+        position: relative;
+        z-index: 2;
+
+        a {
+            @include flex-style($align: center);
+            @include text-style($font-5-med, 14px);
+            position: relative;
+            overflow: hidden;
+            gap: 4px;
+            padding-top: 8px;
+            transition: color .25s ease;
+
+            @include max-screen($break-point-tablet-1) {
+                @include text-style($size: 16px, $color: $white);
+                padding: 8px 0;
+                transition: all 0.3s ease;
+            }
+
+            &::before {
+                content: "";
+                position: absolute;
+                visibility: hidden;
+                width: 5px;
+                height: 5px;
+                top: 0;
+                left: 50%;
+                border-radius: 50%;
+                background-color: $main-color;
+                transform: translateX(-50%);
+                transition: width 0.1s ease-out;
+
+                @include max-screen($break-point-tablet-1) {
+                    width: 2px;
+                    height: 100%;
+                    left: 0;
+                    opacity: 0;
+                    border-radius: 0;
+                    background-color: $white;
+                    transform: none;
+                    transition: opacity 0.3s ease;
+                    transition-delay: 0.1s;
+                }
+            }
+
+        }
+
+        &:hover>a {
+            color: $main-color;
+
+            @include max-screen($break-point-tablet-1) {
+                color: $white;
+            }
+
+            &::before {
+                visibility: visible;
+            }
+        }
+
+        &.active {
+            a {
+                padding-left: 20px;
+            }
+        }
+
+        @include max-screen($break-point-tablet-1) {
+
+            a:hover::before,
+            &:hover a::before,
+            &.sub.active a::before {
+                opacity: 1;
+                width: 3px;
+            }
+
+            &.sub.active {
+
+                a::before,
+                .sub-menu {
+                    visibility: visible;
+                }
+            }
+
+            .sub-menu {
+                display: flex;
+                height: 0;
+                opacity: 0;
+                overflow: hidden;
+                transition: 0.3s ease;
+            }
+
+            &.active {
+                .sub-menu {
+                    height: calc(100% - 39px);
+                    opacity: 1;
+                }
+            }
+        }
+
+        svg {
+            color: $main-color;
+            transition: transform 0.2s ease;
+        }
+    }
+
+    .sub-menu {
+        visibility: hidden;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 48px;
+        flex-direction: column;
+        align-items: center;
+        display: none;
+        @include animation("opacity 0.5s ease");
+
+        .nav-item {
+            width: max-content;
+            text-align: center;
+
+            a {
+                padding-bottom: 10px;
+
+            }
+
+            @include max-screen($break-point-tablet-1) {
+                a {
+                    @include text-style($font-3-light);
+
+                    &::before {
+                        width: 0;
+                        height: 0;
+                    }
+                }
+
+                &:hover a {
+                    text-shadow: 0.25px 0px 0.1px, -0.25px 0px 0.1px;
+                }
+            }
+
+        }
+    }
+
+}
+
+.cart {
+    @include button-style($size: 14px, $radius: 50%, $bgcolor: $main-color, $fontcolor: $white);
+    @include flex-style($align: center, $justify: center);
+    position: relative;
     width: 36px;
     height: 36px;
     z-index: 2;
     margin-left: 64px;
+    transition: all 0.1s linear;
 
     @include max-screen($break-point-tablet-1) {
         display: none;
@@ -214,4 +716,902 @@ button {
             font-size: 12px;
         }
     }
+}
+
+.floating-box {
+
+    @include flex-style(column);
+    gap: 8px;
+    position: sticky;
+    width: max-content;
+    right: 15px;
+    bottom: 0;
+    margin-left: auto;
+    margin-top: -65px;
+    padding-bottom: 15px;
+    transform: translateY(123px);
+    transition: transform 0.3s ease;
+
+    @include max-screen($break-point-tablet-1) {
+        right: 24px;
+        margin-top: -132px;
+        padding-bottom: 24px;
+    }
+
+    .cart {
+        display: none;
+        width: 50px;
+        height: 50px;
+        margin-left: 0;
+        box-shadow: 2px 5px 10px rgba($shadow-light, 0.2);
+        transition: color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease, transform 0.5s ease;
+
+        @include max-screen($break-point-tablet-1) {
+            display: flex;
+        }
+
+        &:hover {
+            svg {
+                opacity: 0.8;
+                font-size: 16px;
+
+                path {
+                    display: block;
+                }
+            }
+
+            p {
+                opacity: 0;
+                font-size: 0;
+            }
+        }
+    }
+}
+
+.top {
+    @include flex-style($justify: center, $align: center);
+    @include button-style($radius: 50%, $bgcolor: $white, $fontcolor: $black);
+    width: 50px;
+    height: 50px;
+    box-shadow: 2px 5px 10px rgba($shadow-light, 0.2);
+    transition: color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease, transform 0.5s ease;
+
+    &:hover {
+        color: $main-color;
+    }
+}
+
+/* ----------- slider ----------- */
+
+#slider {
+    padding-top: 120px;
+    display: flex;
+
+    @include max-screen($break-point-mobile) {
+        padding-top: 80px;
+    }
+
+    .inner {
+        transition: all 0.3s ease-out;
+    }
+
+    .content {
+        @include flex-style(row, center, space-between);
+        cursor: default;
+        width: 1140px;
+
+        @include max-screen($break-point-desktop) {
+            width: 940px;
+        }
+
+        @include max-screen($break-point-mobile) {
+            @include flex-style($direction: column-reverse, $justify: center);
+            height: 100%;
+        }
+    }
+
+    .text-wrap {
+        @include flex-style(column);
+        gap: 30px;
+        width: 58%;
+        z-index: 1;
+        padding-right: 80px;
+
+        @include max-screen($break-point-desktop) {
+            padding-right: 40px;
+        }
+
+        @include max-screen($break-point-tablet-1) {
+            width: 55%;
+            padding-right: 20px;
+        }
+
+        @include max-screen($break-point-mobile) {
+            width: 100%;
+            gap: 20px;
+            padding-right: 0;
+        }
+
+        .new-prod {
+            @include button-style(13px, 15px 20px, 30px, rgba($shadow-dark , 0.08), $main-color);
+            font-family: $font-5-med;
+            width: fit-content;
+
+            @include max-screen($break-point-tablet-2) {
+                @include button-style($size: 11px, $padding: 12px 18px);
+            }
+
+            @include max-screen($break-point-mobile) {
+                @include button-style($size: max(2.1vw, 10px), $padding: 10px 16px);
+            }
+        }
+
+        h1 {
+            white-space: pre-line;
+            color: $black;
+            transition: all 0.3s ease-out;
+
+            @include max-screen($break-point-desktop) {
+                @include text-style($size: 48px, $line-height: 52px);
+            }
+
+            @include max-screen($break-point-tablet-1) {
+                @include text-style($size: 42px, $line-height: 48px);
+                padding-right: 0px;
+                word-break: keep-all;
+                letter-spacing: -0.1rem;
+            }
+
+            @include max-screen($break-point-tablet-2) {
+                @include text-style($size: 36px, $line-height: 42px);
+            }
+
+            @include max-screen($break-point-mobile) {
+                @include text-style($size: max(7vw, 20px), $line-height: max(8vw, 24px));
+                word-break: keep-all;
+            }
+
+            span {
+                color: $main-color;
+            }
+        }
+
+        p {
+            @include text-style($font-5-med, 20px, 30px, 500);
+            white-space: pre-line;
+            transition: all 0.3s ease-out;
+
+            @include max-screen($break-point-tablet-1) {
+                @include text-style($size: 16px, $line-height: 24px);
+            }
+
+            @include max-screen($break-point-tablet-2) {
+                @include text-style($size: 15px, $line-height: 23px);
+            }
+
+            @include max-screen($break-point-mobile) {
+                @include text-style($size: max(3.2vw, 13px), $line-height: max(4.6vw, 16px));
+            }
+        }
+    }
+
+    .img-wrap {
+        width: 42%;
+
+        @include max-screen($break-point-tablet-1) {
+            width: 45%;
+        }
+
+        @include max-screen($break-point-mobile) {
+            width: 60%;
+        }
+    }
+
+    // swiper code
+
+    .swiper-wrapper {
+        align-items: center;
+    }
+
+    .swiper-pointer-events {
+        height: fit-content;
+    }
+
+    .swiper-backface-hidden .swiper-slide {
+        @include flex-style(null, null, center);
+    }
+
+    .swiper-pagination-bullet {
+        width: 10px;
+        height: 10px;
+        margin: 0 6px !important;
+    }
+
+    .swiper-pagination-bullet-active {
+        background-color: $main-color;
+        box-shadow: 0px 4px 5px 1px rgba($shadow-dark, 0.2);
+        transition: all 0.2s ease;
+    }
+
+    .swiper-slide-active {
+        @include animation("opacity 1s ease backwards");
+        animation-delay: 0.7s;
+    }
+
+    .swiper-pagination {
+        position: relative;
+        bottom: 0;
+
+        @include max-screen($break-point-tablet-1) {
+            bottom: 0 !important;
+            padding: 20px 0;
+        }
+    }
+
+}
+
+/* ----------- cereals ----------- */
+
+#cereals {
+
+    @include max-screen($break-point-tablet-2) {
+        min-height: 100vh;
+    }
+
+    @include max-screen($break-point-mobile) {
+        height: 100%;
+    }
+
+    .inner {
+        flex-direction: column;
+
+        @include max-screen($break-point-tablet-2) {
+            width: 100%;
+        }
+    }
+
+    h1 {
+        @include text-style($family: $font-5-med, $size: 40px, $color: $black);
+        position: relative;
+        margin-bottom: 60px;
+
+        @include max-screen($break-point-tablet-2) {
+            font-size: 5vw;
+        }
+
+        @include max-screen($break-point-mobile) {
+            @include text-style($size: 4.8vw, $line-height: 5vw);
+        }
+
+        &:after {
+            content: "";
+            position: absolute;
+            width: 1px;
+            height: 20px;
+            left: 0;
+            bottom: 0;
+            z-index: -1;
+            background-color: rgb($shadow-dark, 0.1);
+            transition: width 0.3s ease;
+            transition-delay: 0.1s;
+
+            @include max-screen($break-point-tablet-2) {
+                bottom: 8px;
+            }
+
+            @include max-screen($break-point-mobile) {
+                height: 12px;
+                bottom: -3px;
+            }
+        }
+
+        &.animate.active:after {
+            width: 100%;
+        }
+    }
+
+    ul {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-gap: 40px;
+
+        @include max-screen($break-point-tablet-1) {
+            grid-gap: 30px;
+        }
+
+        @include max-screen($break-point-mobile) {
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 5vw;
+            justify-items: initial;
+        }
+
+        li {
+            position: relative;
+            @include flex-style(column, center, center);
+            width: 280px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+
+            &:nth-child(n) {
+                grid-column: span 2;
+            }
+
+            &:nth-child(4) {
+                grid-column-end: 4;
+
+                @include max-screen($break-point-mobile) {
+                    grid-column-end: initial;
+                }
+
+            }
+
+            &:nth-child(5) {
+                grid-column-end: -2;
+            }
+
+            @include max-screen($break-point-tablet-1) {
+                width: auto;
+            }
+        }
+    }
+
+    .caption {
+        @include flex-style(column, center, center);
+        transition: all 0.3s ease;
+        cursor: default;
+    }
+
+    h2 {
+        @include text-style($font-6-bold);
+
+        @include max-screen($break-point-tablet-1) {
+            font-size: 18px;
+        }
+
+        @include max-screen($break-point-mobile) {
+            font-size: max(3.2vw, 14px);
+        }
+    }
+
+    h3 {
+        @include max-screen($break-point-mobile) {
+            font-size: max(3vw, 12px);
+            text-align: center;
+        }
+    }
+
+    button {
+        margin-top: 18px;
+
+        @include max-screen($break-point-mobile) {
+            margin-top: 15px;
+        }
+    }
+}
+
+/* ----------- better days ----------- */
+
+#betterdays {
+    @include flex-style(row, center);
+    position: relative;
+    height: 100vh;
+    background-image: url(../images/betterdays_2.jpg);
+    background-position: center 10%;
+
+    .inner {
+        @include max-screen($break-point-tablet-2) {
+            justify-content: center;
+        }
+
+        @include max-screen($break-point-mobile) {
+            padding-top: 60px;
+        }
+    }
+
+    .title {
+        @include flex-style(column);
+        gap: 40px;
+
+        @include max-screen($break-point-tablet-2) {
+            gap: 30px;
+            align-items: center;
+        }
+
+        h1 {
+            @include text-style($size: 64px, $line-height: 64px, $color: $white);
+
+            @include max-screen($break-point-tablet-2) {
+                @include text-style($size: 56px);
+            }
+
+            @include max-screen($break-point-mobile) {
+                @include text-style($size: 40px, $line-height: 42px);
+                text-align: center;
+            }
+        }
+
+        p {
+            @include text-style($font-3-light, 24px, null, null, $white);
+
+            @include max-screen($break-point-tablet-2) {
+                @include text-style($size: 18px);
+            }
+
+            @include max-screen($break-point-mobile) {
+                @include text-style($size: 16px);
+                text-align: center;
+            }
+        }
+    }
+
+}
+
+/* ----------- health and nutrition ----------- */
+
+#healthAndNutrition {
+    .inner {
+        @include flex-style($direction: column, $justify: center);
+        min-height: 100vh;
+        gap: 120px;
+
+        @include max-screen($break-point-mobile) {
+            gap: 60px;
+        }
+    }
+
+    h1 {
+        @include max-screen($break-point-tablet-2) {
+            text-align: center;
+        }
+
+        @include max-screen($break-point-mobile) {
+            @include text-style($size: 40px, $line-height: 42px);
+        }
+    }
+
+    ul {
+        @include flex-style(row);
+        gap: 40px;
+
+        @include max-screen($break-point-desktop) {
+            gap: 30px;
+        }
+
+        @include max-screen($break-point-tablet-2) {
+            gap: 20px;
+        }
+
+        @include max-screen($break-point-mobile) {
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        li {
+            @include flex-style(column);
+            cursor: default;
+            position: relative;
+            overflow: hidden;
+            height: 400px;
+            border-radius: 8px;
+            background-color: $white;
+            box-shadow: 0px 10px 15px rgba($shadow-light, 0.1);
+            transition: all 0.3s ease;
+
+            @include max-screen($break-point-tablet-1) {
+                height: 320px;
+            }
+
+            @include max-screen($break-point-tablet-2) {
+                height: 260px;
+            }
+
+            @include max-screen($break-point-mobile) {
+                height: 100%;
+                min-height: 300px;
+            }
+
+            &:hover {
+                img {
+                    filter: blur(10px);
+
+                    @include max-screen($break-point-mobile) {
+                        filter: blur(5px);
+                    }
+                }
+
+                .info {
+                    @include flex-style($justify: center);
+                    transform: translateY(0px);
+                    background-color: rgba($white, 0.9);
+
+                    @include max-screen($break-point-mobile) {
+                        background-color: rgba($white, 0.8);
+                    }
+
+                    .more {
+                        margin-top: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    .img-wrap {
+        @include flex-style(row, center);
+        height: 400px;
+
+        @include max-screen($break-point-tablet-1) {
+            height: 320px;
+            justify-content: center;
+        }
+
+        @include max-screen($break-point-tablet-2) {
+            height: 260px;
+        }
+    }
+
+    img {
+        transition: all 0.2s linear;
+
+        @include max-screen($break-point-tablet-1) {
+            width: 120%;
+        }
+    }
+
+    .info {
+        @include flex-style(column);
+        position: absolute;
+        bottom: 0;
+        height: 100%;
+        padding: 30px;
+        background-color: $white;
+        transition: all 0.3s ease-out;
+        transform: translateY(282px);
+
+        @include max-screen($break-point-tablet-1) {
+            padding: 20px;
+            transform: translateY(222px);
+        }
+
+        @include max-screen($break-point-tablet-2) {
+            transform: translateY(172px);
+        }
+
+        @include max-screen($break-point-mobile) {
+            transform: translateY(212px);
+        }
+
+        h2 {
+            @include text-style($family: $font-3-light, $size: 18px, $color: $D-gray);
+
+            @include max-screen($break-point-tablet-2) {
+                @include text-style($size: 16px);
+            }
+        }
+
+        h3 {
+            @include text-style($font-6-bold, 24px);
+
+            @include max-screen($break-point-tablet-2) {
+                @include text-style($size: 18px);
+            }
+
+            &::after {
+                content: "";
+                display: block;
+                width: 50px;
+                height: 1px;
+                margin: 30px 0;
+                border-top: 1px solid $M-gray;
+
+                @include max-screen($break-point-tablet-1) {
+                    margin: 20px 0;
+                }
+
+            }
+        }
+
+        p {
+            @include text-style($font-4-reg, 16px);
+            margin-bottom: 30px;
+
+            @include max-screen($break-point-tablet-2) {
+                @include text-style($size: 14px);
+            }
+
+            @include max-screen($break-point-mobile) {
+                margin-bottom: 20px;
+            }
+        }
+
+        .more {
+            @include text-style($font-6-bold, 16px);
+            letter-spacing: 0.2rem;
+            text-transform: uppercase;
+
+            @include max-screen($break-point-tablet-2) {
+                @include text-style($size: 15px);
+            }
+
+            @include max-screen($break-point-mobile) {
+                @include text-style($size: 14px);
+            }
+
+            &:hover {
+                color: $main-color;
+            }
+        }
+    }
+}
+
+/* ----------- recipes ----------- */
+
+#recipes {
+    background-color: $L-gray;
+
+    .inner {
+        flex-direction: column;
+        gap: 120px;
+
+        @include max-screen($break-point-tablet-1) {
+            padding-bottom: calc(120px + 38px);
+        }
+
+        @include max-screen($break-point-mobile) {
+            gap: 60px;
+        }
+    }
+
+    h1 {
+        white-space: pre-line;
+        align-self: baseline;
+
+        @include max-screen($break-point-mobile) {
+            @include text-style($size: 40px, $line-height: 44px);
+        }
+    }
+
+    ul {
+        @include flex-style($justify: space-between);
+        width: 100%;
+
+        @include max-screen($break-point-desktop) {
+            gap: 30px;
+        }
+
+        @include max-screen($break-point-tablet-2) {
+            gap: 12px;
+        }
+
+        @include max-screen($break-point-mobile) {
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        li {
+            @include flex-style(column);
+            @include button-style($padding: 30px, $bgcolor: $white);
+            box-shadow: 0px 10px 15px rgba($shadow-light, 0.1);
+            width: 348px;
+            gap: 20px;
+            overflow: hidden;
+            pointer-events: none;
+            cursor: default;
+            transition: all 0.3s ease;
+
+            @include max-screen($break-point-desktop) {
+                width: 100%;
+            }
+
+            @include max-screen($break-point-tablet-1) {
+                padding: 20px;
+            }
+
+            @include max-screen($break-point-tablet-2) {
+                gap: 16px;
+                padding: 16px;
+            }
+
+            @include max-screen($break-point-mobile) {
+                padding: max(6vw, 20px);
+            }
+
+            &:hover {
+                transform: translate(3px, 3px);
+                box-shadow: 0px 5px 5px rgba($shadow-light, 0.1);
+            }
+        }
+    }
+
+    .info {
+        @include flex-style(column);
+        height: 100%;
+
+        h2 {
+            @include text-style($font-4-reg, 14px, 14px, normal, $D-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.2rem;
+
+            @include max-screen($break-point-tablet-1) {
+                @include text-style($size: 13px);
+            }
+
+            @include max-screen($break-point-tablet-2) {
+                @include text-style($size: 12px);
+            }
+
+            @include max-screen($break-point-mobile) {
+                @include text-style($size: 14px);
+            }
+        }
+
+        h3 {
+            @include text-style($font-7-exBold, 30px, 34px);
+            word-break: keep-all;
+            margin-top: 14px;
+            flex-grow: 1;
+
+            @include max-screen($break-point-desktop) {
+                margin-top: 10px;
+            }
+
+            @include max-screen($break-point-tablet-1) {
+                @include text-style($size: 24px, $line-height: 28px);
+            }
+
+            @include max-screen($break-point-tablet-2) {
+                @include text-style($size: 18px, $line-height: 22px);
+            }
+
+            @include max-screen($break-point-mobile) {
+                @include text-style($size: max(4vw, 22px), $line-height: 28px);
+                margin-top: 14px;
+            }
+        }
+
+        .more {
+            @include flex-style($align: center);
+            gap: 10px;
+            margin-top: 20px;
+            text-transform: uppercase;
+
+            @include max-screen($break-point-desktop) {
+                margin-top: 14px;
+            }
+
+            @include max-screen($break-point-tablet-1) {
+                gap: 6px;
+                margin-top: 10px;
+            }
+
+            @include max-screen($break-point-mobile) {
+                gap: 10px;
+                margin-top: 14px;
+            }
+
+            &::before {
+                content: "";
+                display: block;
+                background-color: $M-gray;
+                height: 1px;
+                flex: 1;
+            }
+
+            a {
+                @include text-style($size: 16px, $color: $D-gray);
+                letter-spacing: 0.2rem;
+                text-transform: uppercase;
+                pointer-events: auto;
+                transition: color 0.3s linear;
+
+                @include max-screen($break-point-tablet-1) {
+                    @include text-style($size: 14px);
+                }
+
+                @include max-screen($break-point-tablet-2) {
+                    @include text-style($size: 13px);
+                }
+
+                @include max-screen($break-point-mobile) {
+                    @include text-style($size: 14px);
+                }
+
+                &:hover {
+                    @include text-style($color: $main-color);
+                    text-shadow: 0.25px 0px 0.1px, -0.25px 0px 0.1px;
+                }
+            }
+        }
+    }
+}
+
+/* ----------- footer ----------- */
+
+footer {
+    width: 100%;
+    background-color: $main-color;
+
+    .inner {
+        @include flex-style($align: flex-start, $justify: space-between);
+
+        padding: {
+            top: 80px;
+            bottom: 80px;
+        }
+
+        @include max-screen($break-point-tablet-2) {
+            flex-direction: column-reverse;
+            gap: 30px;
+        }
+
+        &>div {
+            @include text-style($font-3-light, 14px, 20px);
+            flex-direction: column;
+        }
+    }
+
+    div {
+        display: flex;
+        color: $white;
+
+        h1 {
+            @include text-style($size: 16px, $line-height: 16px, $color: $white);
+            margin-bottom: 10px;
+        }
+    }
+
+    .company {
+        width: max-content;
+
+        p span {
+            font-family: $font-6-bold;
+        }
+    }
+
+    .company,
+    .copyright {
+        white-space: pre-line;
+
+        @include max-screen($break-point-tablet-2) {
+            white-space: initial;
+            width: auto;
+        }
+
+    }
+
+    .sns div {
+        display: flex;
+        gap: 10px;
+
+        a {
+            width: 35px;
+            height: 35px;
+        }
+    }
+
+    p {
+        @include max-screen($break-point-tablet-1) {
+            @include text-style($size: 13px);
+        }
+    }
+}
+
+.inner,
+header .inner,
+#slider .content {
+
+    @include max-screen($break-point-desktop) {
+        width: 940px;
+    }
+
+    @include max-screen($break-point-tablet-1) {
+        width: 720px;
+    }
+
+    @include max-screen($break-point-tablet-2) {
+        width: 100%;
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
 }
