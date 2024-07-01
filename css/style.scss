@@ -47,7 +47,7 @@ $break-point-mobile: 575px;
     color: $fontcolor;
 }
 
-@mixin flex-style($direction: row, $align: normal, $justify: space-between) {
+@mixin flex-style($direction: null, $align: normal, $justify: null) {
     display: flex;
     flex-direction: $direction;
     align-items: $align;
@@ -90,7 +90,6 @@ $break-point-mobile: 575px;
     to {
         right: 100px;
     }
-
 }
 
 @include max-screen($break-point-mobile) {
@@ -101,7 +100,7 @@ $break-point-mobile: 575px;
         }
 
         to {
-            right: calc(50vw - 40px);
+            right: calc(50vw - 58px);
         }
     }
 }
@@ -134,7 +133,7 @@ body {
     font-family: $font-4-reg;
     font-weight: 300;
 
-    &.acitve {
+    &.active {
         overflow: hidden;
 
         @include max-screen($break-point-tablet-1) {
@@ -167,7 +166,7 @@ body {
         @include max-screen($break-point-mobile) {
             .logo-area {
                 top: 20px;
-                right: calc(50vw - 59px);
+                right: calc(50vw - 58px);
                 align-content: center;
             }
         }
@@ -271,7 +270,7 @@ button {
         }
 
         &:hover {
-            @include button-style($bgcolor: rgba($white, 0.9) ,$fontcolor: $black);
+            @include button-style($bgcolor: rgba($white, 0.9), $fontcolor: $black);
             mix-blend-mode: screen;
         }
     }
@@ -385,7 +384,7 @@ header {
     }
 
     nav {
-        @include flex-style(row);
+        @include flex-style($justify: space-between);
         width: 100%;
 
         @include max-screen($break-point-tablet-1) {
@@ -448,7 +447,8 @@ header {
             .hamburger {
 
                 &::before,
-                &::after {
+                &::after,
+                div {
                     position: relative;
                     display: block;
                     content: "";
@@ -457,6 +457,17 @@ header {
                     border-top: 3px solid $black;
                     padding-bottom: 7px;
                     transition: all 0.5s ease;
+
+                    @include max-screen($break-point-mobile) {
+                        width: 25px;
+                    }
+                }
+
+                &::before,
+                div {
+                    @include max-screen($break-point-mobile) {
+                        padding-bottom: 5px;
+                    }
                 }
 
                 &::after {
@@ -495,7 +506,7 @@ header {
         opacity: 1;
         z-index: 1;
         width: 100px;
-        transition: all 0.1s ease;
+        transition: all 0.1s ease, filter 0s ease;
     }
 
     .main-menu {
@@ -533,7 +544,7 @@ header {
             overflow: hidden;
             gap: 4px;
             padding-top: 8px;
-            transition: color .25s ease;
+            transition: color 0.1s ease;
 
             @include max-screen($break-point-tablet-1) {
                 @include text-style($size: 16px, $color: $white);
@@ -544,7 +555,7 @@ header {
             &::before {
                 content: "";
                 position: absolute;
-                visibility: hidden;
+                opacity: 0;
                 width: 5px;
                 height: 5px;
                 top: 0;
@@ -552,13 +563,12 @@ header {
                 border-radius: 50%;
                 background-color: $main-color;
                 transform: translateX(-50%);
-                transition: width 0.1s ease-out;
+                transition: all 0.1s ease;
 
                 @include max-screen($break-point-tablet-1) {
                     width: 2px;
                     height: 100%;
                     left: 0;
-                    opacity: 0;
                     border-radius: 0;
                     background-color: $white;
                     transform: none;
@@ -577,7 +587,7 @@ header {
             }
 
             &::before {
-                visibility: visible;
+                opacity: 1;
             }
         }
 
@@ -805,7 +815,7 @@ header {
         }
 
         @include max-screen($break-point-mobile) {
-            @include flex-style($direction: column-reverse, $justify: center);
+            @include flex-style(column-reverse, center, center);
             height: 100%;
         }
     }
@@ -890,7 +900,7 @@ header {
             }
 
             @include max-screen($break-point-mobile) {
-                @include text-style($size: max(3.2vw, 13px), $line-height: max(4.6vw, 16px));
+                @include text-style($size: max(3.4vw, 13px), $line-height: max(4.4vw, 16px));
             }
         }
     }
@@ -1069,7 +1079,7 @@ header {
         }
 
         @include max-screen($break-point-mobile) {
-            font-size: max(3.2vw, 14px);
+            font-size: max(3.4vw, 14px);
         }
     }
 
@@ -1150,7 +1160,7 @@ header {
 
 #healthAndNutrition {
     .inner {
-        @include flex-style($direction: column, $justify: center);
+        @include flex-style(column, center, center);
         min-height: 100vh;
         gap: 120px;
 
@@ -1278,7 +1288,7 @@ header {
         }
 
         @include max-screen($break-point-mobile) {
-            transform: translateY(212px);
+            transform: translateY(209px);
         }
 
         h2 {
@@ -1293,7 +1303,7 @@ header {
             @include text-style($font-6-bold, 24px);
 
             @include max-screen($break-point-tablet-2) {
-                @include text-style($size: 18px);
+                @include text-style($size: 20px);
             }
 
             &::after {
@@ -1328,6 +1338,8 @@ header {
             @include text-style($font-6-bold, 16px);
             letter-spacing: 0.2rem;
             text-transform: uppercase;
+            width: fit-content;
+            transition: all 0.3s ease;
 
             @include max-screen($break-point-tablet-2) {
                 @include text-style($size: 15px);
@@ -1464,7 +1476,7 @@ header {
             }
 
             @include max-screen($break-point-mobile) {
-                @include text-style($size: max(4vw, 22px), $line-height: 28px);
+                @include text-style($size: max(5vw, 22px), $line-height: 28px);
                 margin-top: 14px;
             }
         }
