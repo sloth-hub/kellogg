@@ -1078,18 +1078,18 @@ header .sub-menu .nav-item a {
     text-align: center;
   }
 }
-#betterdays .title p {
+#betterdays .title h2 {
   font-family: "S-CoreDream-3Light";
   font-size: 24px;
   color: #fff;
 }
 @media screen and (max-width: 768px) {
-  #betterdays .title p {
+  #betterdays .title h2 {
     font-size: 18px;
   }
 }
 @media screen and (max-width: 575px) {
-  #betterdays .title p {
+  #betterdays .title h2 {
     font-size: 16px;
     text-align: center;
   }
@@ -1250,7 +1250,7 @@ header .sub-menu .nav-item a {
 #healthAndNutrition .info h2 {
   font-family: "S-CoreDream-3Light";
   font-size: 18px;
-  color: #969494;
+  color: #747272;
 }
 @media screen and (max-width: 768px) {
   #healthAndNutrition .info h2 {
@@ -1417,7 +1417,7 @@ header .sub-menu .nav-item a {
   font-size: 14px;
   line-height: 14px;
   font-weight: normal;
-  color: #969494;
+  color: #747272;
   text-transform: uppercase;
   letter-spacing: 0.2rem;
 }
@@ -1501,7 +1501,7 @@ header .sub-menu .nav-item a {
 }
 #recipes .info .more a {
   font-size: 16px;
-  color: #969494;
+  color: #747272;
   letter-spacing: 0.2rem;
   text-transform: uppercase;
   pointer-events: auto;

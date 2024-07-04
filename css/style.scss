@@ -1,6 +1,6 @@
 $main-color: #ba0c2f;
 $black: #2B2B2B;
-$D-gray: #969494;
+$D-gray: #747272;
 $M-gray: #cacbce;
 $L-gray: #f3f3f5;
 $white: #fff;
@@ -1140,7 +1140,7 @@ header {
             }
         }
 
-        p {
+        h2 {
             @include text-style($font-3-light, 24px, null, null, $white);
 
             @include max-screen($break-point-tablet-2) {
