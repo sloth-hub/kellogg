@@ -763,13 +763,13 @@ header .sub-menu .nav-item a {
 }
 @media screen and (max-width: 768px) {
   #slider .text-wrap .new-prod {
-    font-size: 11px;
+    font-size: 12px;
     padding: 12px 18px;
   }
 }
 @media screen and (max-width: 575px) {
   #slider .text-wrap .new-prod {
-    font-size: max(2.1vw, 10px);
+    font-size: max(2.4vw, 12px);
     padding: 10px 16px;
   }
 }
@@ -819,20 +819,21 @@ header .sub-menu .nav-item a {
 }
 @media screen and (max-width: 991.98px) {
   #slider .text-wrap p {
-    font-size: 16px;
-    line-height: 24px;
+    font-size: 18px;
+    line-height: 26px;
   }
 }
 @media screen and (max-width: 768px) {
   #slider .text-wrap p {
-    font-size: 15px;
-    line-height: 23px;
+    font-size: 16px;
+    line-height: 24px;
   }
 }
 @media screen and (max-width: 575px) {
   #slider .text-wrap p {
-    font-size: max(3.4vw, 13px);
-    line-height: max(4.4vw, 16px);
+    font-family: "S-CoreDream-4Regular";
+    font-size: max(4vw, 14px);
+    line-height: max(6vw, 16px);
   }
 }
 #slider .img-wrap {
@@ -845,7 +846,7 @@ header .sub-menu .nav-item a {
 }
 @media screen and (max-width: 575px) {
   #slider .img-wrap {
-    width: 60%;
+    width: 80%;
   }
 }
 #slider .swiper-wrapper {
@@ -1341,8 +1342,8 @@ header .sub-menu .nav-item a {
 }
 @media screen and (max-width: 575px) {
   #recipes h1 {
-    font-size: 40px;
-    line-height: 44px;
+    font-size: 32px;
+    line-height: 34px;
   }
 }
 #recipes ul {

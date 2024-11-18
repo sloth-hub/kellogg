@@ -848,11 +848,11 @@ header {
             width: fit-content;
 
             @include max-screen($break-point-tablet-2) {
-                @include button-style($size: 11px, $padding: 12px 18px);
+                @include button-style($size: 12px, $padding: 12px 18px);
             }
 
             @include max-screen($break-point-mobile) {
-                @include button-style($size: max(2.1vw, 10px), $padding: 10px 16px);
+                @include button-style($size: max(2.4vw, 12px), $padding: 10px 16px);
             }
         }
 
@@ -892,15 +892,15 @@ header {
             transition: all 0.3s ease-out;
 
             @include max-screen($break-point-tablet-1) {
-                @include text-style($size: 16px, $line-height: 24px);
+                @include text-style($size: 18px, $line-height: 26px);
             }
 
             @include max-screen($break-point-tablet-2) {
-                @include text-style($size: 15px, $line-height: 23px);
+                @include text-style($size: 16px, $line-height: 24px);
             }
 
             @include max-screen($break-point-mobile) {
-                @include text-style($size: max(3.4vw, 13px), $line-height: max(4.4vw, 16px));
+                @include text-style($font-4-reg, $size: max(4vw, 14px), $line-height: max(6vw, 16px));
             }
         }
     }
@@ -913,7 +913,7 @@ header {
         }
 
         @include max-screen($break-point-mobile) {
-            width: 60%;
+            width: 80%;
         }
     }
 
@@ -1379,7 +1379,7 @@ header {
         align-self: baseline;
 
         @include max-screen($break-point-mobile) {
-            @include text-style($size: 40px, $line-height: 44px);
+            @include text-style($size: 32px, $line-height: 34px);
         }
     }
 
