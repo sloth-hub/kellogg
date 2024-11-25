@@ -23,7 +23,7 @@ https://sloth-hub.github.io/kellogg
 
 ## 📱 PREVIEW - **MOBILE**
 
-![kellogg_mobile](https://github.com/sloth-hub/whattoeattoday/assets/53851248/c2dec2d2-3128-4336-8551-2fa9054daf40)
+![kellogg_mobile](https://github.com/user-attachments/assets/c7d31384-c1c3-40dd-8b66-bd3943a04aa2)
 
 ## ⚙ TECHNOLOGIES
 
