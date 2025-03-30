@@ -45,12 +45,14 @@ function scrollAnimation() {
                     setTimeout(() => {
                         next.classList.add("active");
                     }, delay);
-                    delay += 200;
+                    delay += 400;
                 }
             } else {
                 next.classList.remove("active");
             }
         });
+    }, {
+        threshold: 0.25
     });
     const target = document.querySelectorAll(".animate");
     target.forEach(e => observer.observe(e));
